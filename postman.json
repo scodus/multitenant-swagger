@@ -8,6 +8,18 @@
 	"item": [
 		{
 			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"pm.environment.set('token', response.data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -16,25 +28,68 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "tomnjerry8963@gmail.com",
+							"value": "grgbishal360@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "P@ssw0rd",
+							"value": "asd123",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/admin/login",
+					"raw": "https://bijayniraula.com.np/api/admin/login",
+					"protocol": "https",
+					"host": [
+						"bijayniraula",
+						"com",
+						"np"
+					],
+					"path": [
+						"api",
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "in out status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "status",
+							"value": "1",
+							"description": "1 || 0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/admin/in-out-status",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"admin",
-						"login"
+						"in-out-status"
 					]
 				}
 			},

@@ -16,7 +16,13 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
+  - url: https://bijayniraula.com.np
   - url: http://{{url}}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
 paths:
   /api/admin/login:
     post:
@@ -31,10 +37,32 @@ paths:
               properties:
                 email:
                   type: string
-                  example: tomnjerry8963@gmail.com
+                  example: grgbishal360@gmail.com
                 password:
                   type: string
-                  example: P@ssw0rd
+                  example: asd123
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/in-out-status:
+    post:
+      tags:
+        - default
+      summary: in out status
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: 1 || 0
+                  example: '1'
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
