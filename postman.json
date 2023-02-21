@@ -7,6 +7,153 @@
 	},
 	"item": [
 		{
+			"name": "crm type",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin/crm-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"crm-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single crm type",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"crm-type",
+								":crm_type_id"
+							],
+							"variable": [
+								{
+									"key": "crm_type_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "crm",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin/crm/:crm_type_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"crm",
+								":crm_type_id"
+							],
+							"variable": [
+								{
+									"key": "crm_type_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single crm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/admin/crm/:crm_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"crm",
+								":crm_id"
+							],
+							"variable": [
+								{
+									"key": "crm_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "login",
 			"event": [
 				{
@@ -28,23 +175,20 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "grgbishal360@gmail.com",
+							"value": "admin@admin.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "asd123",
+							"value": "password",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://bijayniraula.com.np/api/admin/login",
-					"protocol": "https",
+					"raw": "{{url}}/api/admin/login",
 					"host": [
-						"bijayniraula",
-						"com",
-						"np"
+						"{{url}}"
 					],
 					"path": [
 						"api",
