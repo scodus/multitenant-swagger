@@ -7,39 +7,274 @@
 	},
 	"item": [
 		{
-			"name": "crm type",
+			"name": "Admin",
 			"item": [
 				{
-					"name": "list",
+					"name": "crm type",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/crm-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm-type",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "crm",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/crm/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/crm/:crm_id/show",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm",
+										":crm_id",
+										"show"
+									],
+									"variable": [
+										{
+											"key": "crm_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "service",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/service",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/service/:service_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"service",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json()",
+									"pm.environment.set('token', response.data.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
 								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
+									"key": "email",
+									"value": "admin@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
 								}
 							]
 						},
-						"method": "GET",
-						"header": [],
 						"url": {
-							"raw": "{{url}}/api/admin/crm-type",
+							"raw": "{{url}}/api/admin/login",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"admin",
-								"crm-type"
+								"login"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get single crm type",
+					"name": "in out status",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -51,193 +286,34 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 || 0",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
+							"raw": "{{url}}/api/admin/in-out-status",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"admin",
-								"crm-type",
-								":crm_type_id"
-							],
-							"variable": [
-								{
-									"key": "crm_type_id",
-									"value": "1"
-								}
+								"in-out-status"
 							]
 						}
 					},
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "crm",
-			"item": [
-				{
-					"name": "list",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/admin/crm/:crm_type_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"crm",
-								":crm_type_id"
-							],
-							"variable": [
-								{
-									"key": "crm_type_id",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get single crm",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/admin/crm/:crm_id",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"crm",
-								":crm_id"
-							],
-							"variable": [
-								{
-									"key": "crm_id",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"const response = pm.response.json()",
-							"pm.environment.set('token', response.data.token)"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "email",
-							"value": "admin@admin.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "password",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/api/admin/login",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "in out status",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "status",
-							"value": "1",
-							"description": "1 || 0",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/api/admin/in-out-status",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"in-out-status"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
