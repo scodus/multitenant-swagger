@@ -28,9 +28,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/crm-type",
+									"raw": "{{url}}/api/admin/crm-type",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -57,9 +57,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/crm-type/:crm_type_id",
+									"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -98,9 +98,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/crm/:crm_type_id",
+									"raw": "{{url}}/api/admin/crm/:crm_type_id",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -134,9 +134,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/crm/:crm_id/show",
+									"raw": "{{url}}/api/admin/crm/:crm_id/show",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -176,9 +176,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/service",
+									"raw": "{{url}}/api/admin/service",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -205,9 +205,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://bijayniraula.com.np/api/admin/service/:service_id",
+									"raw": "{{url}}/api/admin/service/:service_id",
 									"host": [
-										"http://bijayniraula.com.np"
+										"{{url}}"
 									],
 									"path": [
 										"api",
@@ -260,9 +260,9 @@
 							]
 						},
 						"url": {
-							"raw": "http://bijayniraula.com.np/api/admin/login",
+							"raw": "{{url}}/api/admin/login",
 							"host": [
-								"http://bijayniraula.com.np"
+								"{{url}}"
 							],
 							"path": [
 								"api",
@@ -300,9 +300,9 @@
 							]
 						},
 						"url": {
-							"raw": "http://bijayniraula.com.np/api/admin/in-out-status",
+							"raw": "{{url}}/api/admin/in-out-status",
 							"host": [
-								"http://bijayniraula.com.np"
+								"{{url}}"
 							],
 							"path": [
 								"api",

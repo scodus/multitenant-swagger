@@ -8,9 +8,9 @@
 
 3. Run `make doc` in terminal to generate openApi.
 
-# 4. View Api in : https://scodus.github.io/municipality_swagger/
+# 4. View Api in : https://scodus.github.io/multitenant-swagger/
 
 #### Reference `https://joolfe.github.io/postman-to-openapi/`
-# municipality_swagger
-# municipality_swagger
+# multitenant-swagger
+# multitenant-swagger
 # multitenant-swagger
