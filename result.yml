@@ -16,7 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: http://{{url}}
+  - url: http://bijayniraula.com.np
 components:
   securitySchemes:
     bearerAuth:
