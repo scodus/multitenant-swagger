@@ -27,6 +27,8 @@ tags:
   - name: Admin > crm type
   - name: Admin > crm
   - name: Admin > service
+  - name: Admin > complain
+  - name: Admin > member
 paths:
   /api/admin/crm-type:
     get:
@@ -128,6 +130,49 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/complain:
+    get:
+      tags:
+        - Admin > complain
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/complain/{complain_id}:
+    get:
+      tags:
+        - Admin > complain
+      summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: complain_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/member:
+    get:
+      tags:
+        - Admin > member
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/login:
     post:
       tags:
@@ -165,6 +210,18 @@ paths:
                   type: integer
                   description: 1 || 0
                   example: '1'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/site-setting:
+    get:
+      tags:
+        - Admin
+      summary: site setting
       security:
         - bearerAuth: []
       responses:
