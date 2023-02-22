@@ -29,6 +29,7 @@ tags:
   - name: Admin > service
   - name: Admin > complain
   - name: Admin > member
+  - name: Admin > in out status
 paths:
   /api/admin/crm-type:
     get:
@@ -42,11 +43,95 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/crm-type/{crm_type_id}:
-    get:
+    post:
       tags:
         - Admin > crm type
-      summary: single show
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                nepali_title:
+                  type: string
+                  example: nepali title
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm-type/{crm_type_id}:
+    post:
+      tags:
+        - Admin > crm type
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title edit
+                nepali_title:
+                  type: string
+                  example: nepali title edit
+                icon:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: patch
+                remove_icon:
+                  type: string
+                  description: nullable, 1 for removing icon
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > crm type
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm/{crm_type_id}:
+    get:
+      tags:
+        - Admin > crm
+      summary: list
       security:
         - bearerAuth: []
       parameters:
@@ -61,11 +146,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/crm/{crm_type_id}:
-    get:
+    post:
       tags:
         - Admin > crm
-      summary: list
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                description:
+                  type: string
+                  example: description
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -93,6 +195,82 @@ paths:
           schema:
             type: integer
           required: true
+          example: '15'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm/{crm_id}/{crm_type_id}:
+    post:
+      tags:
+        - Admin > crm
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                title:
+                  type: string
+                  example: title edit
+                description:
+                  type: string
+                  example: description edit
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
+                remove_image:
+                  type: string
+                  description: nullable, 1 for removing icon
+                remove_file:
+                  type: string
+                  description: nullable, 1 for removing icon
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '15'
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > crm
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '15'
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
           example: '1'
       responses:
         '200':
@@ -111,11 +289,129 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    post:
+      tags:
+        - Admin > service
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                department_id:
+                  type: string
+                  description: nullable
+                cost:
+                  type: integer
+                  example: '123'
+                member[]:
+                  type: integer
+                  example: '2'
+                required_document:
+                  type: string
+                  description: text
+                  example: sa df
+                supporting_document:
+                  type: string
+                  description: text
+                  example: asd f
+                process:
+                  type: string
+                  description: text
+                  example: sadf asd
+                time:
+                  type: string
+                  description: text
+                  example: a sdf
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/service/{service_id}:
     get:
       tags:
         - Admin > service
       summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: service_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > service
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                title:
+                  type: string
+                  example: title edit
+                department_id:
+                  type: string
+                cost:
+                  type: string
+                member[]:
+                  type: integer
+                  example: '2'
+                required_document:
+                  type: string
+                  description: text
+                supporting_document:
+                  type: string
+                  description: text
+                process:
+                  type: string
+                  description: text
+                time:
+                  type: string
+                  description: text
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: service_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > service
+      summary: delete
       security:
         - bearerAuth: []
       parameters:
@@ -173,6 +469,39 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/in-out-status:
+    post:
+      tags:
+        - Admin > in out status
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: integer
+                  description: 1 || 0
+                  example: '1'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Admin > in out status
+      summary: get status
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/login:
     post:
       tags:
@@ -190,28 +519,6 @@ paths:
                 password:
                   type: string
                   example: password
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/admin/in-out-status:
-    post:
-      tags:
-        - Admin
-      summary: in out status
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                status:
-                  type: integer
-                  description: 1 || 0
-                  example: '1'
-      security:
-        - bearerAuth: []
       responses:
         '200':
           description: Successful response

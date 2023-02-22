@@ -42,7 +42,7 @@
 							"response": []
 						},
 						{
-							"name": "single show",
+							"name": "store",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -54,8 +54,88 @@
 										}
 									]
 								},
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "nepali_title",
+											"value": "nepali title",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-276995_960_720.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/crm-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title edit",
+											"type": "text"
+										},
+										{
+											"key": "nepali_title",
+											"value": "nepali title edit",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "remove_icon",
+											"value": "",
+											"description": "nullable, 1 for removing icon",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
 									"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
 									"host": [
@@ -70,7 +150,47 @@
 									"variable": [
 										{
 											"key": "crm_type_id",
-											"value": "1"
+											"value": "9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/crm-type/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm-type",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_type_id",
+											"value": "9"
 										}
 									]
 								}
@@ -148,6 +268,195 @@
 									"variable": [
 										{
 											"key": "crm_id",
+											"value": "15"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/crm/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "title edit",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description edit",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "remove_image",
+											"value": "",
+											"description": "nullable, 1 for removing icon",
+											"type": "text"
+										},
+										{
+											"key": "remove_file",
+											"value": "",
+											"description": "nullable, 1 for removing icon",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/crm/:crm_id/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm",
+										":crm_id",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_id",
+											"value": "15"
+										},
+										{
+											"key": "crm_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/crm/:crm_id/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"crm",
+										":crm_id",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_id",
+											"value": "15"
+										},
+										{
+											"key": "crm_type_id",
 											"value": "1"
 										}
 									]
@@ -204,6 +513,235 @@
 								},
 								"method": "GET",
 								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/service/:service_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"service",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "department_id",
+											"value": "",
+											"description": "nullable",
+											"type": "text"
+										},
+										{
+											"key": "cost",
+											"value": "123",
+											"type": "text"
+										},
+										{
+											"key": "member[]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "member[]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "required_document",
+											"value": "sa df",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "supporting_document",
+											"value": "asd f",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "process",
+											"value": "sadf asd",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "a sdf",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/service",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "title edit",
+											"type": "text"
+										},
+										{
+											"key": "department_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "cost",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "member[]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "member[]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "required_document",
+											"value": "",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "supporting_document",
+											"value": "",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "process",
+											"value": "",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "",
+											"description": "text",
+											"type": "text"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/service/:service_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"service",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
 								"url": {
 									"raw": "{{url}}/api/admin/service/:service_id",
 									"host": [
@@ -332,6 +870,87 @@
 					]
 				},
 				{
+					"name": "in out status",
+					"item": [
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "1",
+											"description": "1 || 0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/in-out-status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"in-out-status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/in-out-status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"in-out-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"event": [
 						{
@@ -372,46 +991,6 @@
 								"api",
 								"admin",
 								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "in out status",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "status",
-									"value": "1",
-									"description": "1 || 0",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/admin/in-out-status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"in-out-status"
 							]
 						}
 					},
