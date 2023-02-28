@@ -526,15 +526,10 @@ paths:
           content:
             application/json: {}
   /api/admin/logout:
-    post:
+    get:
       tags:
         - Admin
       summary: logout
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
       security:
         - bearerAuth: []
       responses:
