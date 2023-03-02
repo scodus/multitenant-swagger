@@ -27,9 +27,11 @@ tags:
   - name: Admin
   - name: Admin > crm type
   - name: Admin > crm
+  - name: Admin > department
   - name: Admin > service
   - name: Admin > complain
   - name: Admin > member
+  - name: Admin > user
   - name: Admin > in out status
 paths:
   /api/admin/crm-type:
@@ -278,6 +280,37 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/department:
+    get:
+      tags:
+        - Admin > department
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/department/{department_id}:
+    get:
+      tags:
+        - Admin > department
+      summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: department_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/service:
     get:
       tags:
@@ -463,6 +496,36 @@ paths:
       tags:
         - Admin > member
       summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/profile:
+    post:
+      tags:
+        - Admin > user
+      summary: profile update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: required | send old value if no changes needed
+                  example: testtest
+                number:
+                  type: string
+                  description: required | send old value if no changes needed
+                  example: 234562345ww
+                say:
+                  type: string
+                  description: nullable
+                  example: qqwe
       security:
         - bearerAuth: []
       responses:
