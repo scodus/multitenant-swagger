@@ -940,8 +940,44 @@
 					]
 				},
 				{
-					"name": "user",
+					"name": "user profile",
 					"item": [
+						{
+							"name": "get update",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
 						{
 							"name": "profile update",
 							"request": {
