@@ -17,6 +17,7 @@ info:
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
   - url: http://{{url}}
+  - url: https://bijayniraula.com.np
 components:
   securitySchemes:
     bearerAuth:
@@ -26,9 +27,13 @@ tags:
   - name: Admin
   - name: Admin > crm type
   - name: Admin > crm
+  - name: Admin > department
   - name: Admin > service
   - name: Admin > complain
   - name: Admin > member
+  - name: Admin > user profile
+  - name: Admin > in out status
+  - name: Admin > post mail
 paths:
   /api/admin/crm-type:
     get:
@@ -42,11 +47,95 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/crm-type/{crm_type_id}:
-    get:
+    post:
       tags:
         - Admin > crm type
-      summary: single show
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                nepali_title:
+                  type: string
+                  example: nepali title
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm-type/{crm_type_id}:
+    post:
+      tags:
+        - Admin > crm type
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title edit
+                nepali_title:
+                  type: string
+                  example: nepali title edit
+                icon:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: patch
+                remove_icon:
+                  type: string
+                  description: nullable, 1 for removing icon
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > crm type
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '9'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm/{crm_type_id}:
+    get:
+      tags:
+        - Admin > crm
+      summary: list
       security:
         - bearerAuth: []
       parameters:
@@ -61,11 +150,28 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/crm/{crm_type_id}:
-    get:
+    post:
       tags:
         - Admin > crm
-      summary: list
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                description:
+                  type: string
+                  example: description
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -93,6 +199,113 @@ paths:
           schema:
             type: integer
           required: true
+          example: '15'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/crm/{crm_id}/{crm_type_id}:
+    post:
+      tags:
+        - Admin > crm
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                title:
+                  type: string
+                  example: title edit
+                description:
+                  type: string
+                  example: description edit
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
+                remove_image:
+                  type: string
+                  description: nullable, 1 for removing icon
+                remove_file:
+                  type: string
+                  description: nullable, 1 for removing icon
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '15'
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > crm
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: crm_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '15'
+        - name: crm_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/department:
+    get:
+      tags:
+        - Admin > department
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/department/{department_id}:
+    get:
+      tags:
+        - Admin > department
+      summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: department_id
+          in: path
+          schema:
+            type: integer
+          required: true
           example: '1'
       responses:
         '200':
@@ -111,11 +324,129 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    post:
+      tags:
+        - Admin > service
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                department_id:
+                  type: string
+                  description: nullable
+                cost:
+                  type: integer
+                  example: '123'
+                member[]:
+                  type: integer
+                  example: '2'
+                required_document:
+                  type: string
+                  description: text
+                  example: sa df
+                supporting_document:
+                  type: string
+                  description: text
+                  example: asd f
+                process:
+                  type: string
+                  description: text
+                  example: sadf asd
+                time:
+                  type: string
+                  description: text
+                  example: a sdf
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/service/{service_id}:
     get:
       tags:
         - Admin > service
       summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: service_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > service
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                title:
+                  type: string
+                  example: title edit
+                department_id:
+                  type: string
+                cost:
+                  type: string
+                member[]:
+                  type: integer
+                  example: '2'
+                required_document:
+                  type: string
+                  description: text
+                supporting_document:
+                  type: string
+                  description: text
+                process:
+                  type: string
+                  description: text
+                time:
+                  type: string
+                  description: text
+                icon:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: service_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > service
+      summary: delete
       security:
         - bearerAuth: []
       parameters:
@@ -173,23 +504,42 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/login:
+  /api/admin/profile:
+    get:
+      tags:
+        - Admin > user profile
+      summary: get update
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
     post:
       tags:
-        - Admin
-      summary: login
+        - Admin > user profile
+      summary: profile update
       requestBody:
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
-                email:
+                name:
                   type: string
-                  example: admin@admin.com
-                password:
+                  description: required | send old value if no changes needed
+                  example: testtest
+                number:
                   type: string
-                  example: password
+                  description: required | send old value if no changes needed
+                  example: 234562345ww
+                say:
+                  type: string
+                  description: nullable
+                  example: qqwe
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -198,8 +548,8 @@ paths:
   /api/admin/in-out-status:
     post:
       tags:
-        - Admin
-      summary: in out status
+        - Admin > in out status
+      summary: update
       requestBody:
         content:
           multipart/form-data:
@@ -217,11 +567,107 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    get:
+      tags:
+        - Admin > in out status
+      summary: get status
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/post-mail:
+    post:
+      tags:
+        - Admin > post mail
+      summary: post mail
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  example: '3'
+                email:
+                  type: string
+                  example: tomnjerry8963@gmail.com
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/login:
+    post:
+      tags:
+        - Admin
+      summary: test
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: scodus@admin.com
+                password:
+                  type: string
+                  example: password
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/logout:
+    get:
+      tags:
+        - Admin
+      summary: logout
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/site-setting:
     get:
       tags:
         - Admin
       summary: site setting
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/change-password:
+    post:
+      tags:
+        - Admin
+      summary: change old password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  example: password
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
       security:
         - bearerAuth: []
       responses:
