@@ -3,7 +3,7 @@
 		"_postman_id": "2730aa59-523c-4d99-afbd-c1223764ee03",
 		"name": "municipality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16179347"
+		"_exporter_id": "19791325"
 	},
 	"item": [
 		{
@@ -1136,7 +1136,7 @@
 									"formdata": [
 										{
 											"key": "post_id",
-											"value": "3",
+											"value": "1123",
 											"type": "text"
 										},
 										{
@@ -1384,6 +1384,220 @@
 								"api",
 								"admin",
 								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "homepage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/homepage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"homepage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/department",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"department"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/service?department_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"service"
+							],
+							"query": [
+								{
+									"key": "department_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/album",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get album image list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/album/:album_id/image-list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"album",
+								":album_id",
+								"image-list"
+							],
+							"variable": [
+								{
+									"key": "album_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/video",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get crms by crm type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/crm/:crm_type_id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"crm",
+								":crm_type_id"
+							],
+							"variable": [
+								{
+									"key": "crm_type_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single crm",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/crm/:crm_id/show",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"crm",
+								":crm_id",
+								"show"
+							],
+							"variable": [
+								{
+									"key": "crm_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store contact us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bishal Gurung\",\r\n    \"phone_no\": \"123456789\",\r\n    \"message\": \"ladwjdklajdwakljdwakldj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v2/contact-us",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"contact-us"
 							]
 						}
 					},
