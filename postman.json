@@ -3,7 +3,8 @@
 		"_postman_id": "2730aa59-523c-4d99-afbd-c1223764ee03",
 		"name": "municipality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19791325"
+		"_exporter_id": "19791325",
+		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/16179347-2730aa59-523c-4d99-afbd-c1223764ee03?action=share&creator=19791325&source=collection_link"
 	},
 	"item": [
 		{
@@ -1392,6 +1393,116 @@
 			]
 		},
 		{
+			"name": "public",
+			"item": [
+				{
+					"name": "Ward",
+					"item": [
+						{
+							"name": "get all active wards",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/ward",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"ward"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Complain",
+					"item": [
+						{
+							"name": "get all complains",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "ward1.{{url}}/api/complain",
+									"host": [
+										"ward1",
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create complain",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Bishal Gurung\",\r\n    \"subject\": \"Subject 1\",\r\n    \"complain\": \"This is a complain\",\r\n    \"phone_number\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/complain",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single complain",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain/:complain_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain",
+										":complain_id"
+									],
+									"variable": [
+										{
+											"key": "complain_id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "v2",
 			"item": [
 				{
@@ -1408,6 +1519,54 @@
 								"api",
 								"v2",
 								"homepage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/member?department_id=&ward_id=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"member"
+							],
+							"query": [
+								{
+									"key": "department_id",
+									"value": ""
+								},
+								{
+									"key": "ward_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ward",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/ward",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ward"
 							]
 						}
 					},
@@ -1471,6 +1630,26 @@
 								"api",
 								"v2",
 								"album"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all medias (albums and videos)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v2/media/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"media",
+								"all"
 							]
 						}
 					},
