@@ -1427,9 +1427,8 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "ward1.{{url}}/api/complain",
+									"raw": "{{url}}/api/complain",
 									"host": [
-										"ward1",
 										"{{url}}"
 									],
 									"path": [
