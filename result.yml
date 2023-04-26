@@ -34,6 +34,9 @@ tags:
   - name: Admin > user profile
   - name: Admin > in out status
   - name: Admin > post mail
+  - name: public
+  - name: public > Ward
+  - name: public > Complain
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -676,11 +679,102 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/ward:
+    get:
+      tags:
+        - public > Ward
+      summary: get all active wards
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/complain:
+    get:
+      tags:
+        - public > Complain
+      summary: get all complains
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - public > Complain
+      summary: create complain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full_name: Bishal Gurung
+                subject: Subject 1
+                complain: This is a complain
+                phone_number: ''
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/complain/{complain_id}:
+    get:
+      tags:
+        - public > Complain
+      summary: get single complain
+      parameters:
+        - name: complain_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/v2/homepage:
     get:
       tags:
         - v2
       summary: homepage
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/member:
+    get:
+      tags:
+        - v2
+      summary: member
+      parameters:
+        - name: department_id
+          in: query
+          schema:
+            type: string
+        - name: ward_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/ward:
+    get:
+      tags:
+        - v2
+      summary: ward
       responses:
         '200':
           description: Successful response
@@ -717,6 +811,16 @@ paths:
       tags:
         - v2
       summary: album
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/media/all:
+    get:
+      tags:
+        - v2
+      summary: get all medias (albums and videos)
       responses:
         '200':
           description: Successful response
