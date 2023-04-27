@@ -1498,6 +1498,80 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "crm",
+					"item": [
+						{
+							"name": "get all crm types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/crm-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"crm-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all crms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/crm/:crm_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"crm",
+										":crm_type_id"
+									],
+									"variable": [
+										{
+											"key": "crm_type_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single crm",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/crm/:crm_id/show",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"crm",
+										":crm_id",
+										"show"
+									],
+									"variable": [
+										{
+											"key": "crm_id",
+											"value": "59"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
