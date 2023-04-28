@@ -40,6 +40,7 @@ tags:
   - name: public > crm
   - name: public > Member
   - name: public > Site Setting
+  - name: public > Service
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -803,6 +804,33 @@ paths:
       tags:
         - public > Site Setting
       summary: index
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/service:
+    get:
+      tags:
+        - public > Service
+      summary: get all services
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/service/{service_id}:
+    get:
+      tags:
+        - public > Service
+      summary: get single service
+      parameters:
+        - name: service_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response

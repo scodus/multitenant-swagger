@@ -1618,6 +1618,54 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Service",
+					"item": [
+						{
+							"name": "get all services",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/service",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/service/:service_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"service",
+										":service_id"
+									],
+									"variable": [
+										{
+											"key": "service_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
