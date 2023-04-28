@@ -38,6 +38,8 @@ tags:
   - name: public > Ward
   - name: public > Complain
   - name: public > crm
+  - name: public > Member
+  - name: public > Site Setting
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -781,6 +783,26 @@ paths:
             type: integer
           required: true
           example: '59'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/member:
+    get:
+      tags:
+        - public > Member
+      summary: get members list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/site-setting:
+    get:
+      tags:
+        - public > Site Setting
+      summary: index
       responses:
         '200':
           description: Successful response
