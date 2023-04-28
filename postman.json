@@ -1572,6 +1572,52 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Member",
+					"item": [
+						{
+							"name": "get members list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/member",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"member"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Site Setting",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/site-setting",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"site-setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
