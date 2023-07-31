@@ -147,6 +147,16 @@ paths:
       security:
         - bearerAuth: []
       parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          example: '2023-05-29'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          example: '2023-06-28'
         - name: crm_type_id
           in: path
           schema:
@@ -180,6 +190,9 @@ paths:
                 file:
                   type: string
                   format: binary
+                sub_title:
+                  type: string
+                  example: sub-title
       security:
         - bearerAuth: []
       parameters:
@@ -312,9 +325,8 @@ paths:
         - name: department_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -327,6 +339,12 @@ paths:
       summary: list
       security:
         - bearerAuth: []
+      parameters:
+        - name: department_id
+          in: query
+          schema:
+            type: integer
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -761,12 +779,27 @@ paths:
         - public > crm
       summary: get all crms
       parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          example: '2023-05-29'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          example: '2023-06-28'
         - name: crm_type_id
           in: path
           schema:
             type: integer
           required: true
-          example: '3'
+          example: '10'
       responses:
         '200':
           description: Successful response
@@ -783,7 +816,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '59'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -814,6 +847,11 @@ paths:
       tags:
         - public > Service
       summary: get all services
+      parameters:
+        - name: department_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -841,6 +879,12 @@ paths:
       tags:
         - v2
       summary: homepage
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
       responses:
         '200':
           description: Successful response
@@ -894,8 +938,7 @@ paths:
         - name: department_id
           in: query
           schema:
-            type: integer
-          example: '1'
+            type: string
       responses:
         '200':
           description: Successful response
@@ -957,9 +1000,8 @@ paths:
         - name: crm_type_id
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -996,6 +1038,24 @@ paths:
                 name: Bishal Gurung
                 phone_no: '123456789'
                 message: ladwjdklajdwakljdwakldj
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/crm/mail:
+    post:
+      tags:
+        - v2
+      summary: send crm as mail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                post_id: 50
+                email: grgbishal360@gmail.com
       responses:
         '200':
           description: Successful response
