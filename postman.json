@@ -219,7 +219,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/admin/crm/:crm_type_id",
+									"raw": "{{url}}/api/admin/crm/:crm_type_id?start_date=2023-05-29&end_date=2023-06-28",
 									"host": [
 										"{{url}}"
 									],
@@ -228,6 +228,16 @@
 										"admin",
 										"crm",
 										":crm_type_id"
+									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2023-05-29"
+										},
+										{
+											"key": "end_date",
+											"value": "2023-06-28"
+										}
 									],
 									"variable": [
 										{
@@ -313,6 +323,11 @@
 											"key": "file",
 											"type": "file",
 											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										},
+										{
+											"key": "sub_title",
+											"value": "sub-title",
+											"type": "text"
 										}
 									]
 								},
@@ -528,7 +543,7 @@
 									"variable": [
 										{
 											"key": "department_id",
-											"value": "1"
+											"value": ""
 										}
 									]
 								}
@@ -556,7 +571,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/admin/service",
+									"raw": "{{url}}/api/admin/service?department_id=2",
 									"host": [
 										"{{url}}"
 									],
@@ -564,6 +579,12 @@
 										"api",
 										"admin",
 										"service"
+									],
+									"query": [
+										{
+											"key": "department_id",
+											"value": "2"
+										}
 									]
 								}
 							},
@@ -1524,9 +1545,15 @@
 							"name": "get all crms",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{url}}/api/crm/:crm_type_id",
+									"raw": "{{url}}/api/crm/:crm_type_id?start_date=2023-05-29&end_date=2023-06-28",
 									"host": [
 										"{{url}}"
 									],
@@ -1535,10 +1562,20 @@
 										"crm",
 										":crm_type_id"
 									],
+									"query": [
+										{
+											"key": "start_date",
+											"value": "2023-05-29"
+										},
+										{
+											"key": "end_date",
+											"value": "2023-06-28"
+										}
+									],
 									"variable": [
 										{
 											"key": "crm_type_id",
-											"value": "3"
+											"value": "10"
 										}
 									]
 								}
@@ -1564,7 +1601,7 @@
 									"variable": [
 										{
 											"key": "crm_id",
-											"value": "59"
+											"value": "2"
 										}
 									]
 								}
@@ -1628,13 +1665,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/service",
+									"raw": "{{url}}/api/service?department_id=",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"service"
+									],
+									"query": [
+										{
+											"key": "department_id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -1676,7 +1719,13 @@
 					"name": "homepage",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/api/v2/homepage",
 							"host": [
@@ -1764,7 +1813,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/v2/service?department_id=1",
+							"raw": "{{url}}/api/v2/service?department_id=",
 							"host": [
 								"{{url}}"
 							],
@@ -1776,7 +1825,7 @@
 							"query": [
 								{
 									"key": "department_id",
-									"value": "1"
+									"value": ""
 								}
 							]
 						}
@@ -1884,10 +1933,22 @@
 								"crm",
 								":crm_type_id"
 							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2023-04-26",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2023-06-28",
+									"disabled": true
+								}
+							],
 							"variable": [
 								{
 									"key": "crm_type_id",
-									"value": "1"
+									"value": null
 								}
 							]
 						}
@@ -1944,6 +2005,34 @@
 								"api",
 								"v2",
 								"contact-us"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send crm as mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"post_id\": 50,\r\n    \"email\": \"grgbishal360@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/crm/mail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"crm",
+								"mail"
 							]
 						}
 					},
