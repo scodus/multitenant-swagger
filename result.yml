@@ -586,6 +586,10 @@ paths:
                   type: integer
                   description: 1 || 0
                   example: '1'
+                reason:
+                  type: string
+                  description: write any reason here
+                  example: a valid reason
       security:
         - bearerAuth: []
       responses:
@@ -735,6 +739,8 @@ paths:
                 subject: Subject 1
                 complain: This is a complain
                 phone_number: ''
+                ward: Ward here
+                tole: Tole here
       parameters:
         - name: Accept
           in: header
@@ -1038,6 +1044,8 @@ paths:
                 name: Bishal Gurung
                 phone_no: '123456789'
                 message: ladwjdklajdwakljdwakldj
+                ward: ward
+                tole: tole
       responses:
         '200':
           description: Successful response
