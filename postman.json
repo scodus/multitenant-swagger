@@ -2017,6 +2017,40 @@
 					"response": []
 				},
 				{
+					"name": "store complain",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Bishal Gurung\",\r\n    \"subject\": \"Subject 1\",\r\n    \"complain\": \"This is a complain\",\r\n    \"phone_number\": \"\",\r\n    \"ward\": \"Ward here\",\r\n    \"tole\": \"Tole here\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v2/complain",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"complain"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "send crm as mail",
 					"request": {
 						"method": "POST",

@@ -1051,6 +1051,34 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/v2/complain:
+    post:
+      tags:
+        - v2
+      summary: store complain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                full_name: Bishal Gurung
+                subject: Subject 1
+                complain: This is a complain
+                phone_number: ''
+                ward: Ward here
+                tole: Tole here
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/crm/mail:
     post:
       tags:
