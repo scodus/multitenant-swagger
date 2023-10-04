@@ -16,7 +16,7 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: https://bijayniraula.com.np/
+  - url: https://salpasilichhomun.com/
     description: server
 components:
   securitySchemes:
