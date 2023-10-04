@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "2730aa59-523c-4d99-afbd-c1223764ee03",
+		"_postman_id": "df659648-be01-4b19-abba-62c4644ea547",
 		"name": "municipality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19791325",
-		"_collection_link": "https://nepal-commerce.postman.co/workspace/Team-Workspace~630496f0-e11e-435b-88ad-db2d0a326979/collection/16179347-2730aa59-523c-4d99-afbd-c1223764ee03?action=share&creator=19791325&source=collection_link"
+		"_exporter_id": "30036842",
+		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-df659648-be01-4b19-abba-62c4644ea547?action=share&source=collection_link&creator=30036842"
 	},
 	"item": [
 		{
@@ -1191,6 +1191,603 @@
 					]
 				},
 				{
+					"name": "Erecommendation User",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-user/:erecommendation_user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-user",
+										":erecommendation_user_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "title",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										},
+										{
+											"key": "sub_title",
+											"value": "sub-title",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "title edit",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "description edit",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "remove_image",
+											"value": "",
+											"description": "nullable, 1 for removing icon",
+											"type": "text"
+										},
+										{
+											"key": "remove_file",
+											"value": "",
+											"description": "nullable, 1 for removing icon",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-user/:erecommendation_user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-user",
+										":erecommendation_user_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-user/:erecommendation_user_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-user",
+										":erecommendation_user_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_user_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Erecommendation Form",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " S T",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_number",
+											"value": "0022",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "a@b.com",
+											"type": "text"
+										},
+										{
+											"key": "tole",
+											"value": "qwer",
+											"type": "text"
+										},
+										{
+											"key": "ward",
+											"value": "01",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_name",
+											"value": "asdf",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_address",
+											"value": "xcvxv",
+											"type": "text"
+										},
+										{
+											"key": "disease_name",
+											"value": "sad",
+											"type": "text"
+										},
+										{
+											"key": "erecommendation_user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "ward_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_front",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+										},
+										{
+											"key": "citizenship_back",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										},
+										{
+											"key": "application",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "hospital_recommendation",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " S T",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_number",
+											"value": "0022",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "a@b.com",
+											"type": "text"
+										},
+										{
+											"key": "tole",
+											"value": "qwer",
+											"type": "text"
+										},
+										{
+											"key": "ward",
+											"value": "01",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_name",
+											"value": "asdf",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_address",
+											"value": "xcvxv",
+											"type": "text"
+										},
+										{
+											"key": "disease_name",
+											"value": "sad",
+											"type": "text"
+										},
+										{
+											"key": "erecommendation_user_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "ward_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_front",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/alberta-2297204_960_720.jpg"
+										},
+										{
+											"key": "citizenship_back",
+											"type": "file",
+											"src": "/C:/Users/user--49/Pictures/mountains-736886_960_720.jpg"
+										},
+										{
+											"key": "application",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "hospital_recommendation",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "login",
 					"event": [
 						{
@@ -1198,7 +1795,8 @@
 							"script": {
 								"exec": [
 									"const response = pm.response.json()",
-									"pm.environment.set('token', response.data.token)"
+									"pm.environment.set('token', response.data.token)",
+									"pm.environment.set('refresh_token', response.data.refresh_token)"
 								],
 								"type": "text/javascript"
 							}
@@ -1708,6 +2306,539 @@
 										{
 											"key": "service_id",
 											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Erecommendation User",
+					"item": [
+						{
+							"name": "check user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json()\r",
+											"pm.environment.set('otp', response.data.otp)\r",
+											"pm.environment.set('phone', response.data.phone)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "9876543210",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation-user/check",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-user",
+										"check"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "otp submit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json()\r",
+											"pm.environment.set('erecommendation_user_token', response.data.tokenData.token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "{{phone}}",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "{{otp}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation-user/otp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-user",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Erecommendation Form Type",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/erecommendation-form-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-form-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/erecommendation-form-type/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-form-type",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Erecommendation Form",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										":erecommendation_form_type",
+										"erecommendation-form"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_type",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										":erecommendation_form_type",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_type",
+											"value": ""
+										},
+										{
+											"key": "erecommendation_form_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " S T",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_number",
+											"value": "0022",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "a@b.com",
+											"type": "text"
+										},
+										{
+											"key": "tole",
+											"value": "qwer",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_name",
+											"value": "asdf",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_address",
+											"value": "xcvxv",
+											"type": "text"
+										},
+										{
+											"key": "disease_name",
+											"value": "sad",
+											"type": "text"
+										},
+										{
+											"key": "erecommendation_user_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "ward_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_front",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/2.jpeg"
+										},
+										{
+											"key": "citizenship_back",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
+										},
+										{
+											"key": "application",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/2.jpeg"
+										},
+										{
+											"key": "hospital_recommendation",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/AugX-Cabin-Crew-resume-2023-08-22-140841.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										":erecommendation_form_type",
+										"erecommendation-form"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_type",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": " aasS T",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_number",
+											"value": "0022",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9876543210",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "a@b.com",
+											"type": "text"
+										},
+										{
+											"key": "tole",
+											"value": "qwer",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_name",
+											"value": "asdf",
+											"type": "text"
+										},
+										{
+											"key": "service_provider_address",
+											"value": "xcvxv",
+											"type": "text"
+										},
+										{
+											"key": "disease_name",
+											"value": "sad",
+											"type": "text"
+										},
+										{
+											"key": "erecommendation_user_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "ward_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "citizenship_front",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/2.jpeg"
+										},
+										{
+											"key": "citizenship_back",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
+										},
+										{
+											"key": "application",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/2.jpeg"
+										},
+										{
+											"key": "hospital_recommendation",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/1.jpeg"
+										},
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										":erecommendation_form_type",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_type",
+											"value": ""
+										},
+										{
+											"key": "erecommendation_form_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										":erecommendation_form_type",
+										"erecommendation-form",
+										":erecommendation_form_id"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form_type",
+											"value": ""
+										},
+										{
+											"key": "erecommendation_form_id",
+											"value": "1"
 										}
 									]
 								}
