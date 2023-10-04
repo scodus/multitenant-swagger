@@ -16,13 +16,16 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: http://{{url}}
-  - url: https://bijayniraula.com.np
+  - url: https://bijayniraula.com.np/
+    description: server
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
+    noauthAuth:
+      type: http
+      scheme: noauth
 tags:
   - name: Admin
   - name: Admin > crm type
@@ -34,6 +37,8 @@ tags:
   - name: Admin > user profile
   - name: Admin > in out status
   - name: Admin > post mail
+  - name: Admin > Erecommendation User
+  - name: Admin > Erecommendation Form
   - name: public
   - name: public > Ward
   - name: public > Complain
@@ -41,6 +46,9 @@ tags:
   - name: public > Member
   - name: public > Site Setting
   - name: public > Service
+  - name: public > Erecommendation User
+  - name: public > Erecommendation Form Type
+  - name: public > Erecommendation Form
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -632,6 +640,313 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/admin/erecommendation-user:
+    get:
+      tags:
+        - Admin > Erecommendation User
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Erecommendation User
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: title
+                description:
+                  type: string
+                  example: description
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
+                sub_title:
+                  type: string
+                  example: sub-title
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/erecommendation-user/{erecommendation_user_id}:
+    get:
+      tags:
+        - Admin > Erecommendation User
+      summary: single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Erecommendation User
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: patch
+                title:
+                  type: string
+                  example: title edit
+                description:
+                  type: string
+                  example: description edit
+                image:
+                  type: string
+                  format: binary
+                file:
+                  type: string
+                  format: binary
+                remove_image:
+                  type: string
+                  description: nullable, 1 for removing icon
+                remove_file:
+                  type: string
+                  description: nullable, 1 for removing icon
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Erecommendation User
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_user_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/erecommendation-form:
+    get:
+      tags:
+        - Admin > Erecommendation Form
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Erecommendation Form
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ' S T'
+                citizenship_number:
+                  type: integer
+                  example: '0022'
+                gender:
+                  type: string
+                  example: male
+                phone:
+                  type: integer
+                  example: '9876543210'
+                email:
+                  type: string
+                  example: a@b.com
+                tole:
+                  type: string
+                  example: qwer
+                ward:
+                  type: integer
+                  example: '01'
+                service_provider_name:
+                  type: string
+                  example: asdf
+                service_provider_address:
+                  type: string
+                  example: xcvxv
+                disease_name:
+                  type: string
+                  example: sad
+                erecommendation_user_id:
+                  type: integer
+                  example: '1'
+                ward_id:
+                  type: integer
+                  example: '1'
+                citizenship_front:
+                  type: string
+                  format: binary
+                citizenship_back:
+                  type: string
+                  format: binary
+                application:
+                  type: string
+                hospital_recommendation:
+                  type: string
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/erecommendation-form/{erecommendation_form_id}:
+    get:
+      tags:
+        - Admin > Erecommendation Form
+      summary: single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Admin > Erecommendation Form
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ' S T'
+                citizenship_number:
+                  type: integer
+                  example: '0022'
+                gender:
+                  type: string
+                  example: male
+                phone:
+                  type: integer
+                  example: '9876543210'
+                email:
+                  type: string
+                  example: a@b.com
+                tole:
+                  type: string
+                  example: qwer
+                ward:
+                  type: integer
+                  example: '01'
+                service_provider_name:
+                  type: string
+                  example: asdf
+                service_provider_address:
+                  type: string
+                  example: xcvxv
+                disease_name:
+                  type: string
+                  example: sad
+                erecommendation_user_id:
+                  type: integer
+                  example: '1'
+                ward_id:
+                  type: integer
+                  example: '1'
+                citizenship_front:
+                  type: string
+                  format: binary
+                citizenship_back:
+                  type: string
+                  format: binary
+                application:
+                  type: string
+                  format: binary
+                hospital_recommendation:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Admin > Erecommendation Form
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/login:
     post:
       tags:
@@ -875,6 +1190,293 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-user/check:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: check user
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9876543210'
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-user/otp:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: otp submit
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  example: '{{phone}}'
+                otp:
+                  type: string
+                  example: '{{otp}}'
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-form-type:
+    get:
+      tags:
+        - public > Erecommendation Form Type
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-form-type/{erecommendation_form_id}:
+    get:
+      tags:
+        - public > Erecommendation Form Type
+      summary: single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/{erecommendation_form_type}/erecommendation-form:
+    get:
+      tags:
+        - public > Erecommendation Form
+      summary: list
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_type
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - public > Erecommendation Form
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ' S T'
+                citizenship_number:
+                  type: integer
+                  example: '0022'
+                gender:
+                  type: string
+                  example: male
+                phone:
+                  type: integer
+                  example: '9876543210'
+                email:
+                  type: string
+                  example: a@b.com
+                tole:
+                  type: string
+                  example: qwer
+                service_provider_name:
+                  type: string
+                  example: asdf
+                service_provider_address:
+                  type: string
+                  example: xcvxv
+                disease_name:
+                  type: string
+                  example: sad
+                erecommendation_user_id:
+                  type: integer
+                  example: '1'
+                ward_id:
+                  type: integer
+                  example: '2'
+                citizenship_front:
+                  type: string
+                  format: binary
+                citizenship_back:
+                  type: string
+                  format: binary
+                application:
+                  type: string
+                  format: binary
+                hospital_recommendation:
+                  type: string
+                  format: binary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_type
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/{erecommendation_form_type}/erecommendation-form/{erecommendation_form_id}:
+    get:
+      tags:
+        - public > Erecommendation Form
+      summary: single
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_type
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - public > Erecommendation Form
+      summary: update
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ' aasS T'
+                citizenship_number:
+                  type: integer
+                  example: '0022'
+                gender:
+                  type: string
+                  example: male
+                phone:
+                  type: integer
+                  example: '9876543210'
+                email:
+                  type: string
+                  example: a@b.com
+                tole:
+                  type: string
+                  example: qwer
+                service_provider_name:
+                  type: string
+                  example: asdf
+                service_provider_address:
+                  type: string
+                  example: xcvxv
+                disease_name:
+                  type: string
+                  example: sad
+                erecommendation_user_id:
+                  type: integer
+                  example: '1'
+                ward_id:
+                  type: integer
+                  example: '1'
+                citizenship_front:
+                  type: string
+                  format: binary
+                citizenship_back:
+                  type: string
+                  format: binary
+                application:
+                  type: string
+                  format: binary
+                hospital_recommendation:
+                  type: string
+                  format: binary
+                _method:
+                  type: string
+                  example: patch
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_type
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - public > Erecommendation Form
+      summary: delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form_type
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: erecommendation_form_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response
