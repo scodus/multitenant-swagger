@@ -962,7 +962,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/{erecommendation_form_type}/erecommendation-form:
+  /api/{erecommendation_form_type_id}/erecommendation-form:
     get:
       tags:
         - public > Erecommendation Form
@@ -970,12 +970,12 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_type
+        - name: erecommendation_form_type_id
           in: path
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -993,10 +993,10 @@ paths:
               properties:
                 name:
                   type: string
-                  example: ' S T'
+                  example: A Bahadur B
                 citizenship_number:
-                  type: integer
-                  example: '0022'
+                  type: string
+                  example: 0022-0110
                 gender:
                   type: string
                   example: male
@@ -1008,22 +1008,19 @@ paths:
                   example: a@b.com
                 tole:
                   type: string
-                  example: qwer
+                  example: abey
                 service_provider_name:
                   type: string
-                  example: asdf
+                  example: XYZ Hos
                 service_provider_address:
                   type: string
-                  example: xcvxv
+                  example: zyx galli
                 disease_name:
                   type: string
-                  example: sad
-                erecommendation_user_id:
-                  type: integer
-                  example: '1'
+                  example: Rog
                 ward_id:
                   type: integer
-                  example: '2'
+                  example: '1'
                 citizenship_front:
                   type: string
                   format: binary
@@ -1039,17 +1036,18 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_type
+        - name: erecommendation_form_type_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /api/{erecommendation_form_type}/erecommendation-form/{erecommendation_form_id}:
+  /api/{erecommendation_form_type_id}/erecommendation-form/{erecommendation_form}:
     get:
       tags:
         - public > Erecommendation Form
@@ -1057,17 +1055,18 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_type
-          in: path
-          schema:
-            type: string
-          required: true
-        - name: erecommendation_form_id
+        - name: erecommendation_form_type_id
           in: path
           schema:
             type: integer
           required: true
-          example: '1'
+          example: '2'
+        - name: erecommendation_form
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '4'
       responses:
         '200':
           description: Successful response
@@ -1085,10 +1084,10 @@ paths:
               properties:
                 name:
                   type: string
-                  example: ' aasS T'
+                  example: A Bahadur B
                 citizenship_number:
-                  type: integer
-                  example: '0022'
+                  type: string
+                  example: 0022-0110
                 gender:
                   type: string
                   example: male
@@ -1100,19 +1099,16 @@ paths:
                   example: a@b.com
                 tole:
                   type: string
-                  example: qwer
+                  example: abey
                 service_provider_name:
                   type: string
-                  example: asdf
+                  example: XYZ Hos
                 service_provider_address:
                   type: string
-                  example: xcvxv
+                  example: zyx galli
                 disease_name:
                   type: string
-                  example: sad
-                erecommendation_user_id:
-                  type: integer
-                  example: '1'
+                  example: Rog
                 ward_id:
                   type: integer
                   example: '1'
@@ -1134,17 +1130,16 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_type
+        - name: erecommendation_form_type_id
           in: path
           schema:
             type: string
           required: true
-        - name: erecommendation_form_id
+        - name: erecommendation_form
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1157,17 +1152,16 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_type
+        - name: erecommendation_form_type_id
           in: path
           schema:
             type: string
           required: true
-        - name: erecommendation_form_id
+        - name: erecommendation_form
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
