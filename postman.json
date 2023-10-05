@@ -1863,19 +1863,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/erecommendation-form-type/:erecommendation_form_id",
+									"raw": "{{url}}/api/erecommendation-form-type/:erecommendation_form_type",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"erecommendation-form-type",
-										":erecommendation_form_id"
+										":erecommendation_form_type"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_id",
-											"value": "1"
+											"key": "erecommendation_form_type",
+											"value": ""
 										}
 									]
 								}
@@ -1955,7 +1955,7 @@
 										},
 										{
 											"key": "erecommendation_form",
-											"value": "4"
+											"value": "11"
 										}
 									]
 								}
@@ -1982,7 +1982,7 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "A Bahadur B",
+											"value": "A Bahadur B ",
 											"type": "text"
 										},
 										{
@@ -2033,22 +2033,22 @@
 										{
 											"key": "citizenship_front",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": "/C:/Users/August/Downloads/2.jpeg"
 										},
 										{
 											"key": "citizenship_back",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/1.jpeg"
 										},
 										{
 											"key": "application",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/BUS SEAT 44(L1).pdf"
+											"src": "/C:/Users/August/Downloads/Compressed/audaan.pdf"
 										},
 										{
 											"key": "hospital_recommendation",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/BUS SEAT 44(L1).pdf"
+											"src": "/C:/Users/August/Downloads/2.jpeg"
 										}
 									]
 								},
@@ -2092,7 +2092,7 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "A Bahadur B",
+											"value": "A Bahadur B edit",
 											"type": "text"
 										},
 										{
@@ -2153,7 +2153,7 @@
 										{
 											"key": "application",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/Compressed/Online Ticketing Reports Format (1).pdf"
 										},
 										{
 											"key": "hospital_recommendation",
@@ -2181,11 +2181,11 @@
 									"variable": [
 										{
 											"key": "erecommendation_form_type_id",
-											"value": ""
+											"value": "2"
 										},
 										{
 											"key": "erecommendation_form",
-											"value": ""
+											"value": "11"
 										}
 									]
 								}
@@ -2225,11 +2225,11 @@
 									"variable": [
 										{
 											"key": "erecommendation_form_type_id",
-											"value": ""
+											"value": "2"
 										},
 										{
 											"key": "erecommendation_form",
-											"value": ""
+											"value": "10"
 										}
 									]
 								}
