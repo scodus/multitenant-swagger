@@ -1903,19 +1903,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form",
+									"raw": "{{url}}/api/:erecommendation_form_type_id/erecommendation-form",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										":erecommendation_form_type",
+										":erecommendation_form_type_id",
 										"erecommendation-form"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_type",
-											"value": "1"
+											"key": "erecommendation_form_type_id",
+											"value": "2"
 										}
 									]
 								}
@@ -1938,24 +1938,24 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"raw": "{{url}}/api/:erecommendation_form_type_id/erecommendation-form/:erecommendation_form",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										":erecommendation_form_type",
+										":erecommendation_form_type_id",
 										"erecommendation-form",
-										":erecommendation_form_id"
+										":erecommendation_form"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_type",
-											"value": ""
+											"key": "erecommendation_form_type_id",
+											"value": "2"
 										},
 										{
-											"key": "erecommendation_form_id",
-											"value": "1"
+											"key": "erecommendation_form",
+											"value": "4"
 										}
 									]
 								}
@@ -1982,12 +1982,12 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": " S T",
+											"value": "A Bahadur B",
 											"type": "text"
 										},
 										{
 											"key": "citizenship_number",
-											"value": "0022",
+											"value": "0022-0110",
 											"type": "text"
 										},
 										{
@@ -2007,71 +2007,65 @@
 										},
 										{
 											"key": "tole",
-											"value": "qwer",
+											"value": "abey",
 											"type": "text"
 										},
 										{
 											"key": "service_provider_name",
-											"value": "asdf",
+											"value": "XYZ Hos",
 											"type": "text"
 										},
 										{
 											"key": "service_provider_address",
-											"value": "xcvxv",
+											"value": "zyx galli",
 											"type": "text"
 										},
 										{
 											"key": "disease_name",
-											"value": "sad",
+											"value": "Rog",
 											"type": "text"
 										},
 										{
-											"key": "erecommendation_user_id",
-											"value": "1",
-											"type": "text",
-											"disabled": true
-										},
-										{
 											"key": "ward_id",
-											"value": "2",
+											"value": "1",
 											"type": "text"
 										},
 										{
 											"key": "citizenship_front",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/1.jpeg"
 										},
 										{
 											"key": "citizenship_back",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": "/C:/Users/August/Downloads/2.jpeg"
 										},
 										{
 											"key": "application",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/BUS SEAT 44(L1).pdf"
 										},
 										{
 											"key": "hospital_recommendation",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/AugX-Cabin-Crew-resume-2023-08-22-140841.pdf"
+											"src": "/C:/Users/August/Downloads/BUS SEAT 44(L1).pdf"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form",
+									"raw": "{{url}}/api/:erecommendation_form_type_id/erecommendation-form",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										":erecommendation_form_type",
+										":erecommendation_form_type_id",
 										"erecommendation-form"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_type",
-											"value": ""
+											"key": "erecommendation_form_type_id",
+											"value": "2"
 										}
 									]
 								}
@@ -2098,12 +2092,12 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": " aasS T",
+											"value": "A Bahadur B",
 											"type": "text"
 										},
 										{
 											"key": "citizenship_number",
-											"value": "0022",
+											"value": "0022-0110",
 											"type": "text"
 										},
 										{
@@ -2123,29 +2117,23 @@
 										},
 										{
 											"key": "tole",
-											"value": "qwer",
+											"value": "abey",
 											"type": "text"
 										},
 										{
 											"key": "service_provider_name",
-											"value": "asdf",
+											"value": "XYZ Hos",
 											"type": "text"
 										},
 										{
 											"key": "service_provider_address",
-											"value": "xcvxv",
+											"value": "zyx galli",
 											"type": "text"
 										},
 										{
 											"key": "disease_name",
-											"value": "sad",
+											"value": "Rog",
 											"type": "text"
-										},
-										{
-											"key": "erecommendation_user_id",
-											"value": "1",
-											"type": "text",
-											"disabled": true
 										},
 										{
 											"key": "ward_id",
@@ -2180,24 +2168,24 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"raw": "{{url}}/api/:erecommendation_form_type_id/erecommendation-form/:erecommendation_form",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										":erecommendation_form_type",
+										":erecommendation_form_type_id",
 										"erecommendation-form",
-										":erecommendation_form_id"
+										":erecommendation_form"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_type",
+											"key": "erecommendation_form_type_id",
 											"value": ""
 										},
 										{
-											"key": "erecommendation_form_id",
-											"value": "2"
+											"key": "erecommendation_form",
+											"value": ""
 										}
 									]
 								}
@@ -2224,24 +2212,24 @@
 									"formdata": []
 								},
 								"url": {
-									"raw": "{{url}}/api/:erecommendation_form_type/erecommendation-form/:erecommendation_form_id",
+									"raw": "{{url}}/api/:erecommendation_form_type_id/erecommendation-form/:erecommendation_form",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										":erecommendation_form_type",
+										":erecommendation_form_type_id",
 										"erecommendation-form",
-										":erecommendation_form_id"
+										":erecommendation_form"
 									],
 									"variable": [
 										{
-											"key": "erecommendation_form_type",
+											"key": "erecommendation_form_type_id",
 											"value": ""
 										},
 										{
-											"key": "erecommendation_form_id",
-											"value": "1"
+											"key": "erecommendation_form",
+											"value": ""
 										}
 									]
 								}
