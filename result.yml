@@ -943,7 +943,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/erecommendation-form-type/{erecommendation_form_id}:
+  /api/erecommendation-form-type/{erecommendation_form_type}:
     get:
       tags:
         - public > Erecommendation Form Type
@@ -951,12 +951,11 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: erecommendation_form_id
+        - name: erecommendation_form_type
           in: path
           schema:
-            type: integer
+            type: string
           required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -993,7 +992,7 @@ paths:
               properties:
                 name:
                   type: string
-                  example: A Bahadur B
+                  example: 'A Bahadur B '
                 citizenship_number:
                   type: string
                   example: 0022-0110
@@ -1066,7 +1065,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '11'
       responses:
         '200':
           description: Successful response
@@ -1084,7 +1083,7 @@ paths:
               properties:
                 name:
                   type: string
-                  example: A Bahadur B
+                  example: A Bahadur B edit
                 citizenship_number:
                   type: string
                   example: 0022-0110
@@ -1133,13 +1132,15 @@ paths:
         - name: erecommendation_form_type_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '2'
         - name: erecommendation_form
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '11'
       responses:
         '200':
           description: Successful response
@@ -1155,13 +1156,15 @@ paths:
         - name: erecommendation_form_type_id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '2'
         - name: erecommendation_form
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '10'
       responses:
         '200':
           description: Successful response
