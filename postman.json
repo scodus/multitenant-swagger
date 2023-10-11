@@ -1746,7 +1746,7 @@
 									"formdata": [
 										{
 											"key": "phone",
-											"value": "9876543210",
+											"value": "9812775137",
 											"type": "text"
 										}
 									]
@@ -1997,7 +1997,7 @@
 										},
 										{
 											"key": "phone",
-											"value": "9876543210",
+											"value": "9860659603",
 											"type": "text"
 										},
 										{
@@ -2033,22 +2033,31 @@
 										{
 											"key": "citizenship_front",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/2.jpeg",
+											"disabled": true
 										},
 										{
 											"key": "citizenship_back",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": "/C:/Users/August/Downloads/1.jpeg",
+											"disabled": true
 										},
 										{
 											"key": "application",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/audaan.pdf"
+											"src": "/C:/Users/August/Downloads/1.jpeg",
+											"disabled": true
 										},
 										{
 											"key": "hospital_recommendation",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": "/C:/Users/August/Downloads/1.jpeg",
+											"disabled": true
+										},
+										{
+											"key": "dob",
+											"value": "2002-10-12",
+											"type": "text"
 										}
 									]
 								},
@@ -2090,6 +2099,11 @@
 								"body": {
 									"mode": "formdata",
 									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
 										{
 											"key": "name",
 											"value": "A Bahadur B edit",
@@ -2143,26 +2157,26 @@
 										{
 											"key": "citizenship_front",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/2.jpeg"
+											"src": []
 										},
 										{
 											"key": "citizenship_back",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": []
 										},
 										{
 											"key": "application",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/Online Ticketing Reports Format (1).pdf"
+											"src": []
 										},
 										{
 											"key": "hospital_recommendation",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/1.jpeg"
+											"src": []
 										},
 										{
-											"key": "_method",
-											"value": "patch",
+											"key": "dob",
+											"value": "2000-10-05",
 											"type": "text"
 										}
 									]
@@ -2185,7 +2199,7 @@
 										},
 										{
 											"key": "erecommendation_form",
-											"value": "11"
+											"value": "2"
 										}
 									]
 								}
@@ -2230,6 +2244,69 @@
 										{
 											"key": "erecommendation_form",
 											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/erecommendation-form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-form"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{erecommendation_user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/erecommendation-form/:erecommendation_form",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation-form",
+										":erecommendation_form"
+									],
+									"variable": [
+										{
+											"key": "erecommendation_form",
+											"value": "4"
 										}
 									]
 								}

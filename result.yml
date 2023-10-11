@@ -899,7 +899,7 @@ paths:
               properties:
                 phone:
                   type: integer
-                  example: '9876543210'
+                  example: '9812775137'
       security:
         - noauthAuth: []
       responses:
@@ -1001,7 +1001,7 @@ paths:
                   example: male
                 phone:
                   type: integer
-                  example: '9876543210'
+                  example: '9860659603'
                 email:
                   type: string
                   example: a@b.com
@@ -1032,6 +1032,9 @@ paths:
                 hospital_recommendation:
                   type: string
                   format: binary
+                dob:
+                  type: string
+                  example: '2002-10-12'
       security:
         - bearerAuth: []
       parameters:
@@ -1081,6 +1084,9 @@ paths:
             schema:
               type: object
               properties:
+                _method:
+                  type: string
+                  example: patch
                 name:
                   type: string
                   example: A Bahadur B edit
@@ -1123,9 +1129,9 @@ paths:
                 hospital_recommendation:
                   type: string
                   format: binary
-                _method:
+                dob:
                   type: string
-                  example: patch
+                  example: '2000-10-05'
       security:
         - bearerAuth: []
       parameters:
@@ -1140,7 +1146,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '11'
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -1165,6 +1171,37 @@ paths:
             type: integer
           required: true
           example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-form:
+    get:
+      tags:
+        - public > Erecommendation Form
+      summary: list all
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation-form/{erecommendation_form}:
+    get:
+      tags:
+        - public > Erecommendation Form
+      summary: single all
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: erecommendation_form
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '4'
       responses:
         '200':
           description: Successful response
