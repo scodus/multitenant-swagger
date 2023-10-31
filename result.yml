@@ -996,7 +996,7 @@ paths:
                   type: integer
                   example: '9812775137'
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1068,7 +1068,7 @@ paths:
                   type: string
                   example: '{{refresh_token}}'
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1149,7 +1149,7 @@ paths:
                   type: integer
                   example: '9812775137'
       security:
-        - bearerAuth: []
+        - noauthAuth: []
       responses:
         '200':
           description: Successful response
