@@ -1721,15 +1721,518 @@
 					"name": "Erecommendation User",
 					"item": [
 						{
-							"name": "check user",
+							"name": "old method",
+							"item": [
+								{
+									"name": "check user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const response = pm.response.json()\r",
+													"pm.environment.set('otp', response.data.otp)\r",
+													"pm.environment.set('phone', response.data.phone)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "phone",
+													"value": "9812775137",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/erecommendation-user/check",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"erecommendation-user",
+												"check"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "otp submit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"const response = pm.response.json()\r",
+													"pm.environment.set('erecommendation_user_token', response.data.tokenData.token)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "phone",
+													"value": "{{phone}}",
+													"type": "text"
+												},
+												{
+													"key": "otp",
+													"value": "{{otp}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/erecommendation-user/otp",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"erecommendation-user",
+												"otp"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json()",
+											"pm.environment.set('token', response.data.token)",
+											"pm.environment.set('refresh_token', response.data.refresh_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "9812775137",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "P@ssw0rd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "account-verification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "9812775137",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "2786",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/account-verification",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"account-verification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resend-account-verification-otp-token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "9812775137",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/resend-account-verification-otp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"resend-account-verification-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"const response = pm.response.json()",
+											"pm.environment.set('token', response.data.token)",
+											"pm.environment.set('refresh_token', response.data.refresh_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "9812775137",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user-detail",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/user-detail",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"user-detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh_token",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
 											"const response = pm.response.json()\r",
-											"pm.environment.set('otp', response.data.otp)\r",
-											"pm.environment.set('phone', response.data.phone)"
+											"pm.environment.set('token', response.data.token)\r",
+											"pm.environment.set('refresh_token', response.data.refresh_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/refresh-token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"refresh-token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "old_password",
+											"value": "P@ssw0rd0",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "P@ssw0rd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset password otp token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1752,28 +2255,27 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/erecommendation-user/check",
+									"raw": "{{url}}/api/erecommendation/reset-password-otp-token",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										"erecommendation-user",
-										"check"
+										"erecommendation",
+										"reset-password-otp-token"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "otp submit",
+							"name": "reset password",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"const response = pm.response.json()\r",
-											"pm.environment.set('erecommendation_user_token', response.data.tokenData.token)"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -1781,7 +2283,14 @@
 							],
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
 								},
 								"method": "POST",
 								"header": [],
@@ -1789,26 +2298,36 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "phone",
-											"value": "{{phone}}",
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "P@ssw0rd",
 											"type": "text"
 										},
 										{
 											"key": "otp",
-											"value": "{{otp}}",
+											"value": "9568",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "9812775137",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/api/erecommendation-user/otp",
+									"raw": "{{url}}/api/erecommendation/reset-password",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
-										"erecommendation-user",
-										"otp"
+										"erecommendation",
+										"reset-password"
 									]
 								}
 							},
@@ -1827,7 +2346,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -1855,7 +2374,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -1875,7 +2394,7 @@
 									"variable": [
 										{
 											"key": "erecommendation_form_type",
-											"value": ""
+											"value": "2"
 										}
 									]
 								}
@@ -1895,7 +2414,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -1930,7 +2449,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -1955,7 +2474,7 @@
 										},
 										{
 											"key": "erecommendation_form",
-											"value": "11"
+											"value": "5"
 										}
 									]
 								}
@@ -1986,27 +2505,12 @@
 											"type": "text"
 										},
 										{
-											"key": "citizenship_number",
-											"value": "0022-0110",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "male",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "9860659603",
-											"type": "text"
-										},
-										{
 											"key": "email",
 											"value": "a@b.com",
 											"type": "text"
 										},
 										{
-											"key": "tole",
+											"key": "address",
 											"value": "abey",
 											"type": "text"
 										},
@@ -2074,7 +2578,7 @@
 									"variable": [
 										{
 											"key": "erecommendation_form_type_id",
-											"value": "2"
+											"value": "1"
 										}
 									]
 								}
@@ -2106,12 +2610,12 @@
 										},
 										{
 											"key": "name",
-											"value": "A Bahadur B edit",
+											"value": "A Bahadur B edit 010",
 											"type": "text"
 										},
 										{
 											"key": "citizenship_number",
-											"value": "0022-0110",
+											"value": "0022-011000",
 											"type": "text"
 										},
 										{
@@ -2199,7 +2703,7 @@
 										},
 										{
 											"key": "erecommendation_form",
-											"value": "2"
+											"value": "6"
 										}
 									]
 								}
@@ -2258,7 +2762,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -2286,7 +2790,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -2306,7 +2810,7 @@
 									"variable": [
 										{
 											"key": "erecommendation_form",
-											"value": "4"
+											"value": "5"
 										}
 									]
 								}

@@ -45,6 +45,7 @@ tags:
   - name: public > Site Setting
   - name: public > Service
   - name: public > Erecommendation User
+  - name: public > Erecommendation User > old method
   - name: public > Erecommendation Form Type
   - name: public > Erecommendation Form
   - name: v2
@@ -889,7 +890,7 @@ paths:
   /api/erecommendation-user/check:
     post:
       tags:
-        - public > Erecommendation User
+        - public > Erecommendation User > old method
       summary: check user
       requestBody:
         content:
@@ -910,7 +911,7 @@ paths:
   /api/erecommendation-user/otp:
     post:
       tags:
-        - public > Erecommendation User
+        - public > Erecommendation User > old method
       summary: otp submit
       requestBody:
         content:
@@ -926,6 +927,229 @@ paths:
                   example: '{{otp}}'
       security:
         - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/register:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: register
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9812775137'
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/account-verification:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: account-verification
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9812775137'
+                otp:
+                  type: integer
+                  example: '2786'
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/resend-account-verification-otp:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: resend-account-verification-otp-token
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9812775137'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/login:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: login
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9812775137'
+                password:
+                  type: string
+                  example: P@ssw0rd
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/user-detail:
+    get:
+      tags:
+        - public > Erecommendation User
+      summary: user-detail
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/logout:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: logout
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/refresh-token:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: refresh_token
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                refresh_token:
+                  type: string
+                  example: '{{refresh_token}}'
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/change-password:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: change password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                _method:
+                  type: string
+                  example: PUT
+                old_password:
+                  type: string
+                  example: P@ssw0rd0
+                new_password:
+                  type: string
+                  example: P@ssw0rd
+                new_password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/reset-password-otp-token:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: reset password otp token
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: integer
+                  example: '9812775137'
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/erecommendation/reset-password:
+    post:
+      tags:
+        - public > Erecommendation User
+      summary: reset password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+                otp:
+                  type: integer
+                  example: '9568'
+                phone:
+                  type: integer
+                  example: '9812775137'
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successful response
@@ -954,8 +1178,9 @@ paths:
         - name: erecommendation_form_type
           in: path
           schema:
-            type: string
+            type: integer
           required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
@@ -993,19 +1218,10 @@ paths:
                 name:
                   type: string
                   example: 'A Bahadur B '
-                citizenship_number:
-                  type: string
-                  example: 0022-0110
-                gender:
-                  type: string
-                  example: male
-                phone:
-                  type: integer
-                  example: '9860659603'
                 email:
                   type: string
                   example: a@b.com
-                tole:
+                address:
                   type: string
                   example: abey
                 service_provider_name:
@@ -1043,7 +1259,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1068,7 +1284,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '11'
+          example: '5'
       responses:
         '200':
           description: Successful response
@@ -1089,10 +1305,10 @@ paths:
                   example: patch
                 name:
                   type: string
-                  example: A Bahadur B edit
+                  example: A Bahadur B edit 010
                 citizenship_number:
                   type: string
-                  example: 0022-0110
+                  example: 0022-011000
                 gender:
                   type: string
                   example: male
@@ -1146,7 +1362,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '2'
+          example: '6'
       responses:
         '200':
           description: Successful response
@@ -1201,7 +1417,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '5'
       responses:
         '200':
           description: Successful response
