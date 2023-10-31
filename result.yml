@@ -974,8 +974,6 @@ paths:
                 otp:
                   type: integer
                   example: '2786'
-      security:
-        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -995,8 +993,6 @@ paths:
                 phone:
                   type: integer
                   example: '9812775137'
-      security:
-        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1067,8 +1063,6 @@ paths:
                 refresh_token:
                   type: string
                   example: '{{refresh_token}}'
-      security:
-        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1118,8 +1112,6 @@ paths:
                 phone:
                   type: integer
                   example: '9812775137'
-      security:
-        - noauthAuth: []
       responses:
         '200':
           description: Successful response
@@ -1148,8 +1140,6 @@ paths:
                 phone:
                   type: integer
                   example: '9812775137'
-      security:
-        - noauthAuth: []
       responses:
         '200':
           description: Successful response
