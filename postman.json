@@ -2468,7 +2468,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -2572,7 +2572,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
@@ -2697,7 +2697,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{erecommendation_user_token}}",
+											"value": "{{token}}",
 											"type": "string"
 										}
 									]
