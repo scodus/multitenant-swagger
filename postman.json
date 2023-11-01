@@ -928,6 +928,268 @@
 					]
 				},
 				{
+					"name": "Complain Type",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "complain type 66",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "complain type 5 ed0",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "inactive",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "status change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "patch",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/complain-type/status/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain-type",
+										"status",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "member",
 					"item": [
 						{
@@ -1479,13 +1741,54 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"full_name\": \"Bishal Gurung\",\r\n    \"subject\": \"Subject 1\",\r\n    \"complain\": \"This is a complain\",\r\n    \"phone_number\": \"\",\r\n    \"ward\": \"Ward here\",\r\n    \"tole\": \"Tole here\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "full_name",
+											"value": "Bishal Gurung",
+											"type": "text"
+										},
+										{
+											"key": "subject",
+											"value": "Subject 1",
+											"type": "text"
+										},
+										{
+											"key": "complain",
+											"value": "This is a complain",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "ward",
+											"value": "Ward here",
+											"type": "text"
+										},
+										{
+											"key": "tole",
+											"value": "Tole here",
+											"type": "text"
+										},
+										{
+											"key": "complain_type_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "documents[]",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/d0f47a1c6bfb3f115b2788ad71fc6bd9.doc"
+										},
+										{
+											"key": "documents[]",
+											"type": "file",
+											"src": "/C:/Users/August/Downloads/Compressed/test-images/booked-seat.png"
 										}
-									}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/api/complain",
@@ -1518,7 +1821,55 @@
 									"variable": [
 										{
 											"key": "complain_id",
-											"value": "5"
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Complain Type",
+					"item": [
+						{
+							"name": "get all complain types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain-type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain-type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single complain type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain-type/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain-type",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "1"
 										}
 									]
 								}
@@ -3084,6 +3435,31 @@
 					"response": []
 				},
 				{
+					"name": "get all complain types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v2/complain-type",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"complain-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "store complain",
 					"request": {
 						"method": "POST",
@@ -3095,13 +3471,54 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"full_name\": \"Bishal Gurung\",\r\n    \"subject\": \"Subject 1\",\r\n    \"complain\": \"This is a complain\",\r\n    \"phone_number\": \"\",\r\n    \"ward\": \"Ward here\",\r\n    \"tole\": \"Tole here\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "Bishal Gurung",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "Subject 1",
+									"type": "text"
+								},
+								{
+									"key": "complain",
+									"value": "This is a complain",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "ward",
+									"value": "Ward here",
+									"type": "text"
+								},
+								{
+									"key": "tole",
+									"value": "Tole here",
+									"type": "text"
+								},
+								{
+									"key": "complain_type_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "documents[]",
+									"type": "file",
+									"src": "/C:/Users/August/Downloads/d0f47a1c6bfb3f115b2788ad71fc6bd9.doc"
+								},
+								{
+									"key": "documents[]",
+									"type": "file",
+									"src": "/C:/Users/August/Downloads/Compressed/test-images/2.png"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{url}}/api/v2/complain",
