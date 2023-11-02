@@ -18,8 +18,8 @@ info:
 servers:
   - url: https://sunkoshimunsindhuli.com/
     description: sunkoshimunsindhuli.com server
-  - url: https://salpasilichomun.com/
-    description: salpasilichomun.com server
+  - url: https://salpasilichhomun.com/
+    description: salpasilichhomun.com server
 components:
   securitySchemes:
     bearerAuth:
