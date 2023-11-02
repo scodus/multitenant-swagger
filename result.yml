@@ -17,7 +17,9 @@ info:
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
   - url: https://sunkoshimunsindhuli.com/
-    description: server
+    description: sunkoshimunsindhuli.com server
+  - url: https://salpasilichomun.com/
+    description: salpasilichomun.com server
 components:
   securitySchemes:
     bearerAuth:

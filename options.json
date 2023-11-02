@@ -22,7 +22,11 @@
     "servers": [
         {
             "url": "https://sunkoshimunsindhuli.com/",
-            "description": "server"
+            "description": "sunkoshimunsindhuli.com server"
+        },
+        {
+            "url": "https://salpasilichomun.com/",
+            "description": "salpasilichomun.com server"
         }
     ]
 }
