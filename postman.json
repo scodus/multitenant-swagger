@@ -1475,12 +1475,17 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "scodus@admin.com",
+									"value": "scodus@developer.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
 									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "",
 									"type": "text"
 								}
 							]
@@ -1494,6 +1499,58 @@
 								"api",
 								"admin",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set-device-token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json()",
+									"pm.environment.set('token', response.data.token)",
+									"pm.environment.set('refresh_token', response.data.refresh_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "device_token",
+									"value": "000d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/set-device-token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"set-device-token"
 							]
 						}
 					},
@@ -1781,12 +1838,12 @@
 										{
 											"key": "documents[]",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/d0f47a1c6bfb3f115b2788ad71fc6bd9.doc"
+											"src": "/C:/Users/August/Downloads/Compressed/Bleach - Shooting Star (Title Song).mp4"
 										},
 										{
 											"key": "documents[]",
 											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/test-images/booked-seat.png"
+											"src": "/C:/Users/August/Downloads/Compressed/test-images/1.jpg"
 										}
 									]
 								},
@@ -2193,7 +2250,7 @@
 									"formdata": [
 										{
 											"key": "phone",
-											"value": "9860659603",
+											"value": "9812775137",
 											"type": "text"
 										},
 										{
@@ -2331,12 +2388,17 @@
 									"formdata": [
 										{
 											"key": "phone",
-											"value": "9860659603",
+											"value": "9812775137",
 											"type": "text"
 										},
 										{
 											"key": "password",
 											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "device_token",
+											"value": "00sdf0sf00000000",
 											"type": "text"
 										}
 									]
@@ -2614,7 +2676,7 @@
 									"formdata": [
 										{
 											"key": "otp",
-											"value": "6027",
+											"value": "9765",
 											"type": "text"
 										},
 										{
@@ -2669,7 +2731,7 @@
 										},
 										{
 											"key": "otp",
-											"value": "9568",
+											"value": "9765",
 											"type": "text"
 										},
 										{
@@ -2688,6 +2750,56 @@
 										"api",
 										"erecommendation",
 										"reset-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set-device-token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_token",
+											"value": "000000000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/erecommendation/set-device-token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"erecommendation",
+										"set-device-token"
 									]
 								}
 							},
