@@ -1888,6 +1888,45 @@
 					]
 				},
 				{
+					"name": "Device Token",
+					"item": [
+						{
+							"name": "first_or_create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_token",
+											"value": "ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBL",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/device-token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"device-token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Complain Type",
 					"item": [
 						{
@@ -2756,7 +2795,7 @@
 							"response": []
 						},
 						{
-							"name": "set-device-token",
+							"name": "set-device-token-of-user",
 							"event": [
 								{
 									"listen": "test",

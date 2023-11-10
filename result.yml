@@ -43,6 +43,7 @@ tags:
   - name: public
   - name: public > Ward
   - name: public > Complain
+  - name: public > Device Token
   - name: public > Complain Type
   - name: public > crm
   - name: public > Member
@@ -954,6 +955,32 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/device-token:
+    post:
+      tags:
+        - public > Device Token
+      summary: first_or_create
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                device_token:
+                  type: string
+                  example: >-
+                    ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBL
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/complain-type:
     get:
       tags:
@@ -1378,7 +1405,7 @@ paths:
     post:
       tags:
         - public > Erecommendation User
-      summary: set-device-token
+      summary: set-device-token-of-user
       requestBody:
         content:
           multipart/form-data:
