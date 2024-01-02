@@ -53,6 +53,14 @@ tags:
   - name: public > Erecommendation User > old method
   - name: public > Erecommendation Form Type
   - name: public > Erecommendation Form
+  - name: public > Emergency Services
+  - name: public > Emergency Services > Emergency Service
+  - name: public > Emergency Services > Emergency Service Provider
+  - name: public > General Services
+  - name: public > General Services > Education Service
+  - name: public > General Services > Health Service
+  - name: public > General Services > Agriculture Service
+  - name: public > General Services > TouristArea Service
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -969,7 +977,7 @@ paths:
                 device_token:
                   type: string
                   example: >-
-                    ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBL
+                    ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBK
       parameters:
         - name: Accept
           in: header
@@ -1248,7 +1256,6 @@ paths:
                   example: P@ssw0rd
                 device_token:
                   type: string
-                  example: 00sdf0sf00000000
       responses:
         '200':
           description: Successful response
@@ -1685,6 +1692,163 @@ paths:
             type: integer
           required: true
           example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/emergency-service:
+    get:
+      tags:
+        - public > Emergency Services > Emergency Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/emergency-service/{id}:
+    get:
+      tags:
+        - public > Emergency Services > Emergency Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/emergency-service-provider:
+    get:
+      tags:
+        - public > Emergency Services > Emergency Service Provider
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/emergency-service-provider/{id}:
+    get:
+      tags:
+        - public > Emergency Services > Emergency Service Provider
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/education-service:
+    get:
+      tags:
+        - public > General Services > Education Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/education-service/{id}:
+    get:
+      tags:
+        - public > General Services > Education Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/health-service:
+    get:
+      tags:
+        - public > General Services > Health Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/health-service/{id}:
+    get:
+      tags:
+        - public > General Services > Health Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/agriculture-service:
+    get:
+      tags:
+        - public > General Services > Agriculture Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/agriculture-service/{id}:
+    get:
+      tags:
+        - public > General Services > Agriculture Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/tourist-area-service:
+    get:
+      tags:
+        - public > General Services > TouristArea Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/tourist-area-service/{id}:
+    get:
+      tags:
+        - public > General Services > TouristArea Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

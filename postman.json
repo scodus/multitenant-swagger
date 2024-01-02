@@ -1906,7 +1906,7 @@
 									"formdata": [
 										{
 											"key": "device_token",
-											"value": "ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBL",
+											"value": "ejevikjyR7qa5WBVEufJi8:APA91bESgZ3_2bM9Y0B0jXe8xReuOW-0IOY6QDWKqzEvduSHqOwy_CwoDwXNfcb9MJuFxZVIjcH5wgxMCvXafxNfUlgo8jePcZVJEnnYpbBYHj5sKjUd1Eq3l4eDhK6x_5fD9GiovyBK",
 											"type": "text"
 										}
 									]
@@ -2437,7 +2437,7 @@
 										},
 										{
 											"key": "device_token",
-											"value": "00sdf0sf00000000",
+											"value": "",
 											"type": "text"
 										}
 									]
@@ -3327,6 +3327,304 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "Emergency Services",
+					"item": [
+						{
+							"name": "Emergency Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/emergency-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"emergency-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/emergency-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"emergency-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Emergency Service Provider",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/emergency-service-provider",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"emergency-service-provider"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/emergency-service-provider/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"emergency-service-provider",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "General Services",
+					"item": [
+						{
+							"name": "Education Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/education-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"education-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/education-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"education-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Health Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/health-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"health-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/health-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"health-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Agriculture Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/agriculture-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"agriculture-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/agriculture-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"agriculture-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "TouristArea Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/tourist-area-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"tourist-area-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/tourist-area-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"tourist-area-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
