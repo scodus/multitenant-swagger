@@ -1729,6 +1729,11 @@ paths:
       tags:
         - public > Emergency Services > Emergency Service Provider
       summary: list
+      parameters:
+        - name: emergency_service_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1755,6 +1760,11 @@ paths:
       tags:
         - public > General Services > Education Service
       summary: list
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1781,6 +1791,11 @@ paths:
       tags:
         - public > General Services > Health Service
       summary: list
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1807,6 +1822,11 @@ paths:
       tags:
         - public > General Services > Agriculture Service
       summary: list
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -1833,6 +1853,11 @@ paths:
       tags:
         - public > General Services > TouristArea Service
       summary: list
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response

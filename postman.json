@@ -3390,13 +3390,19 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/emergency-service-provider",
+											"raw": "{{url}}/api/emergency-service-provider?emergency_service_id=",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"api",
 												"emergency-service-provider"
+											],
+											"query": [
+												{
+													"key": "emergency_service_id",
+													"value": ""
+												}
 											]
 										}
 									},
@@ -3443,13 +3449,19 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/education-service",
+											"raw": "{{url}}/api/education-service?ward_id=",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"api",
 												"education-service"
+											],
+											"query": [
+												{
+													"key": "ward_id",
+													"value": ""
+												}
 											]
 										}
 									},
@@ -3491,13 +3503,19 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/health-service",
+											"raw": "{{url}}/api/health-service?ward_id",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"api",
 												"health-service"
+											],
+											"query": [
+												{
+													"key": "ward_id",
+													"value": null
+												}
 											]
 										}
 									},
@@ -3539,13 +3557,19 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/agriculture-service",
+											"raw": "{{url}}/api/agriculture-service?ward_id",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"api",
 												"agriculture-service"
+											],
+											"query": [
+												{
+													"key": "ward_id",
+													"value": null
+												}
 											]
 										}
 									},
@@ -3587,13 +3611,19 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/tourist-area-service",
+											"raw": "{{url}}/api/tourist-area-service?ward_id",
 											"host": [
 												"{{url}}"
 											],
 											"path": [
 												"api",
 												"tourist-area-service"
+											],
+											"query": [
+												{
+													"key": "ward_id",
+													"value": null
+												}
 											]
 										}
 									},
