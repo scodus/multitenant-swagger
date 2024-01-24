@@ -21,6 +21,10 @@
     },
     "servers": [
         {
+            "url": "https://epalika.org/",
+            "description": "epalika.org.com server"
+        },
+        {
             "url": "https://sunkoshimunsindhuli.com/",
             "description": "sunkoshimunsindhuli.com server"
         },
