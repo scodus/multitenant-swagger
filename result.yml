@@ -17,7 +17,7 @@ info:
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
   - url: https://epalika.org/
-    description: epalika.org.com server
+    description: epalika.org server
   - url: https://sunkoshimunsindhuli.com/
     description: sunkoshimunsindhuli.com server
   - url: https://salpasilichhomun.com/
