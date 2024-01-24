@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "df659648-be01-4b19-abba-62c4644ea547",
+		"_postman_id": "1d422aed-d094-4dbc-8b35-d49121cd9bb9",
 		"name": "municipality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30036842",
-		"_collection_link": "https://nrna-team.postman.co/workspace/NRNA~0b0ccb09-1ac4-4aa4-9ef0-7b29f77c824e/collection/30036666-df659648-be01-4b19-abba-62c4644ea547?action=share&source=collection_link&creator=30036842"
+		"_exporter_id": "15009917",
+		"_collection_link": "https://bikash-projects.postman.co/workspace/Bikash's-Workspace~07b4d747-08b6-4eac-9f94-41a4bad205fa/collection/15009917-1d422aed-d094-4dbc-8b35-d49121cd9bb9?action=share&source=collection_link&creator=15009917"
 	},
 	"item": [
 		{
@@ -3648,6 +3648,60 @@
 												{
 													"key": "id",
 													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Public Toilet Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/public-toilet-service?ward_id=",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"public-toilet-service"
+											],
+											"query": [
+												{
+													"key": "ward_id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/public-toilet-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"public-toilet-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
 												}
 											]
 										}

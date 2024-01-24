@@ -61,6 +61,7 @@ tags:
   - name: public > General Services > Health Service
   - name: public > General Services > Agriculture Service
   - name: public > General Services > TouristArea Service
+  - name: public > General Services > Public Toilet Service
   - name: v2
 paths:
   /api/admin/crm-type:
@@ -1874,6 +1875,38 @@ paths:
           schema:
             type: string
           required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/public-toilet-service:
+    get:
+      tags:
+        - public > General Services > Public Toilet Service
+      summary: list
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/public-toilet-service/{id}:
+    get:
+      tags:
+        - public > General Services > Public Toilet Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
       responses:
         '200':
           description: Successful response
