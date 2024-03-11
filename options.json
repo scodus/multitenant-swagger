@@ -21,8 +21,8 @@
     },
     "servers": [
         {
-            "url": "https://epalika.org/",
-            "description": "epalika.org server"
+            "url": "https://urlabarimun.org/",
+            "description": "urlabarimun.org server"
         },
         {
             "url": "https://sunkoshimunsindhuli.com/",
@@ -31,6 +31,10 @@
         {
             "url": "https://salpasilichhomun.com/",
             "description": "salpasilichhomun.com server"
+        },
+        {
+            "url": "https://epalika.org/",
+            "description": "epalika.org server"
         }
     ]
 }

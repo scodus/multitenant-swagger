@@ -11,6 +11,159 @@
 			"name": "Admin",
 			"item": [
 				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json()",
+											"pm.environment.set('token', response.data.token)",
+											"pm.environment.set('refresh_token', response.data.refresh_token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "scodus@developer.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "device_token",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change old password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "old_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "P@ssw0rd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "crm type",
 					"item": [
 						{
@@ -1453,58 +1606,6 @@
 					]
 				},
 				{
-					"name": "login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"const response = pm.response.json()",
-									"pm.environment.set('token', response.data.token)",
-									"pm.environment.set('refresh_token', response.data.refresh_token)"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "scodus@developer.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "password",
-									"type": "text"
-								},
-								{
-									"key": "device_token",
-									"value": "",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/admin/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "set-device-token",
 					"event": [
 						{
@@ -1557,53 +1658,6 @@
 					"response": []
 				},
 				{
-					"name": "logout",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{url}}/api/admin/logout",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"logout"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "site setting",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1634,55 +1688,6 @@
 								"api",
 								"admin",
 								"site-setting"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "change old password",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "old_password",
-									"value": "password",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "P@ssw0rd",
-									"type": "text"
-								},
-								{
-									"key": "password_confirmation",
-									"value": "P@ssw0rd",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/api/admin/change-password",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"admin",
-								"change-password"
 							]
 						}
 					},
@@ -1821,8 +1826,8 @@
 											"type": "text"
 										},
 										{
-											"key": "ward",
-											"value": "Ward here",
+											"key": "ward_id",
+											"value": "1",
 											"type": "text"
 										},
 										{
@@ -3991,7 +3996,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Bishal Gurung\",\r\n    \"phone_no\": \"123456789\",\r\n    \"message\": \"ladwjdklajdwakljdwakldj\",\r\n    \"ward\": \"ward\",\r\n    \"tole\": \"tole\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Bishal Gurung\",\r\n    \"phone_no\": \"123456789\",\r\n    \"message\": \"ladwjdklajdwakljdwakldj\",\r\n    \"ward_id\": null,\r\n    \"tole\": \"tole\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4072,8 +4077,8 @@
 									"type": "text"
 								},
 								{
-									"key": "ward",
-									"value": "Ward here",
+									"key": "ward_id",
+									"value": "1",
 									"type": "text"
 								},
 								{

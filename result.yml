@@ -16,12 +16,14 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: https://epalika.org/
-    description: epalika.org server
+  - url: https://urlabarimun.org/
+    description: urlabarimun.org server
   - url: https://sunkoshimunsindhuli.com/
     description: sunkoshimunsindhuli.com server
   - url: https://salpasilichhomun.com/
     description: salpasilichhomun.com server
+  - url: https://epalika.org/
+    description: epalika.org server
 components:
   securitySchemes:
     bearerAuth:
@@ -32,6 +34,7 @@ components:
       scheme: noauth
 tags:
   - name: Admin
+  - name: Admin > Authentication
   - name: Admin > crm type
   - name: Admin > crm
   - name: Admin > department
@@ -66,6 +69,67 @@ tags:
   - name: public > General Services > Public Toilet Service
   - name: v2
 paths:
+  /api/admin/login:
+    post:
+      tags:
+        - Admin
+      summary: test
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: scodus@admin.com
+                password:
+                  type: string
+                  example: password
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/logout:
+    get:
+      tags:
+        - Admin > Authentication
+      summary: logout
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/change-password:
+    post:
+      tags:
+        - Admin > Authentication
+      summary: change old password
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  example: password
+                password:
+                  type: string
+                  example: P@ssw0rd
+                password_confirmation:
+                  type: string
+                  example: P@ssw0rd
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/admin/crm-type:
     get:
       tags:
@@ -791,28 +855,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/login:
-    post:
-      tags:
-        - Admin
-      summary: test
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: scodus@admin.com
-                password:
-                  type: string
-                  example: password
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/admin/set-device-token:
     post:
       tags:
@@ -834,50 +876,11 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/logout:
-    get:
-      tags:
-        - Admin
-      summary: logout
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/admin/site-setting:
     get:
       tags:
         - Admin
       summary: site setting
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/admin/change-password:
-    post:
-      tags:
-        - Admin
-      summary: change old password
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                old_password:
-                  type: string
-                  example: password
-                password:
-                  type: string
-                  example: P@ssw0rd
-                password_confirmation:
-                  type: string
-                  example: P@ssw0rd
       security:
         - bearerAuth: []
       responses:
@@ -926,9 +929,9 @@ paths:
                   example: This is a complain
                 phone_number:
                   type: string
-                ward:
-                  type: string
-                  example: Ward here
+                ward_id:
+                  type: integer
+                  example: '1'
                 tole:
                   type: string
                   example: Tole here
@@ -2078,7 +2081,7 @@ paths:
                 name: Bishal Gurung
                 phone_no: '123456789'
                 message: ladwjdklajdwakljdwakldj
-                ward: ward
+                ward_id: null
                 tole: tole
       responses:
         '200':
@@ -2123,9 +2126,9 @@ paths:
                   example: This is a complain
                 phone_number:
                   type: string
-                ward:
-                  type: string
-                  example: Ward here
+                ward_id:
+                  type: integer
+                  example: '1'
                 tole:
                   type: string
                   example: Tole here
