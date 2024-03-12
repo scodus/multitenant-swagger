@@ -16,8 +16,8 @@ info:
     name: MIT
     url: https://es.wikipedia.org/wiki/Licencia_MIT
 servers:
-  - url: https://urlabarimun.org/
-    description: urlabarimun.org server
+  - url: https://urlabarimun.com/
+    description: urlabarimun.com server
   - url: https://sunkoshimunsindhuli.com/
     description: sunkoshimunsindhuli.com server
   - url: https://salpasilichhomun.com/
