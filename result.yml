@@ -39,17 +39,17 @@ tags:
   - name: Admin > crm
   - name: Admin > department
   - name: Admin > service
-  - name: Admin > complain
   - name: Admin > Complain Type
+  - name: Admin > complain
   - name: Admin > member
   - name: Admin > user profile
   - name: Admin > in out status
   - name: Admin > post mail
   - name: public
   - name: public > Ward
+  - name: public > Complain Type
   - name: public > Complain
   - name: public > Device Token
-  - name: public > Complain Type
   - name: public > crm
   - name: public > Member
   - name: public > Site Setting
@@ -67,6 +67,9 @@ tags:
   - name: public > General Services > Agriculture Service
   - name: public > General Services > TouristArea Service
   - name: public > General Services > Public Toilet Service
+  - name: public > Technical Services
+  - name: public > Technical Services > Technical Service
+  - name: public > Technical Services > Technical Service Provider
   - name: v2
 paths:
   /api/admin/login:
@@ -574,37 +577,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/admin/complain:
-    get:
-      tags:
-        - Admin > complain
-      summary: list
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/admin/complain/{complain_id}:
-    get:
-      tags:
-        - Admin > complain
-      summary: single show
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: complain_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
   /api/admin/complain-type:
     get:
       tags:
@@ -736,6 +708,37 @@ paths:
             type: integer
           required: true
           example: '5'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/complain:
+    get:
+      tags:
+        - Admin > complain
+      summary: list
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/admin/complain/{complain_id}:
+    get:
+      tags:
+        - Admin > complain
+      summary: single show
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: complain_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '12'
       responses:
         '200':
           description: Successful response
@@ -898,6 +901,38 @@ paths:
           description: Successful response
           content:
             application/json: {}
+  /api/complain-type:
+    get:
+      tags:
+        - public > Complain Type
+      summary: get all complain types
+      parameters:
+        - name: ward_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/complain-type/{complain_type_id}:
+    get:
+      tags:
+        - public > Complain Type
+      summary: get single complain type
+      parameters:
+        - name: complain_type_id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/complain:
     get:
       tags:
@@ -963,7 +998,7 @@ paths:
           schema:
             type: integer
           required: true
-          example: '4'
+          example: '1'
       responses:
         '200':
           description: Successful response
@@ -990,33 +1025,6 @@ paths:
           schema:
             type: string
           example: application/json
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/complain-type:
-    get:
-      tags:
-        - public > Complain Type
-      summary: get all complain types
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/complain-type/{complain_type_id}:
-    get:
-      tags:
-        - public > Complain Type
-      summary: get single complain type
-      parameters:
-        - name: complain_type_id
-          in: path
-          schema:
-            type: integer
-          required: true
-          example: '1'
       responses:
         '200':
           description: Successful response
@@ -1086,6 +1094,13 @@ paths:
       tags:
         - public > Member
       summary: get members list
+      parameters:
+        - name: member_type
+          in: query
+          schema:
+            type: string
+          description: janapratinidhi,karmachari,other
+          example: janapratinidhi,karmachari
       responses:
         '200':
           description: Successful response
@@ -1216,9 +1231,10 @@ paths:
               properties:
                 phone:
                   type: integer
-                  example: '9860659603'
+                  example: '9812775137'
                 otp:
-                  type: string
+                  type: integer
+                  example: '1961'
       responses:
         '200':
           description: Successful response
@@ -1237,7 +1253,7 @@ paths:
               properties:
                 phone:
                   type: integer
-                  example: '9860659603'
+                  example: '9812775137'
       responses:
         '200':
           description: Successful response
@@ -1531,6 +1547,9 @@ paths:
                 dob:
                   type: string
                   example: '2002-10-12'
+                image:
+                  type: string
+                  format: binary
       security:
         - bearerAuth: []
       parameters:
@@ -1771,6 +1790,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: community,institutional
       responses:
         '200':
           description: Successful response
@@ -1802,6 +1826,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: community,institutional
       responses:
         '200':
           description: Successful response
@@ -1833,6 +1862,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: community,institutional
       responses:
         '200':
           description: Successful response
@@ -1864,6 +1898,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: community,institutional
       responses:
         '200':
           description: Successful response
@@ -1895,6 +1934,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: type
+          in: query
+          schema:
+            type: string
+          description: community,institutional
       responses:
         '200':
           description: Successful response
@@ -1912,6 +1956,66 @@ paths:
             type: integer
           required: true
           example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/technical-service:
+    get:
+      tags:
+        - public > Technical Services > Technical Service
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/technical-service/{id}:
+    get:
+      tags:
+        - public > Technical Services > Technical Service
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/technical-service-provider:
+    get:
+      tags:
+        - public > Technical Services > Technical Service Provider
+      summary: list
+      parameters:
+        - name: technical_service_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/technical-service-provider/{id}:
+    get:
+      tags:
+        - public > Technical Services > Technical Service Provider
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
       responses:
         '200':
           description: Successful response

@@ -1,10 +1,10 @@
 {
 	"info": {
 		"_postman_id": "1d422aed-d094-4dbc-8b35-d49121cd9bb9",
-		"name": "municipality",
+		"name": "municipal-tenancy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "15009917",
-		"_collection_link": "https://bikash-projects.postman.co/workspace/Bikash's-Workspace~07b4d747-08b6-4eac-9f94-41a4bad205fa/collection/15009917-1d422aed-d094-4dbc-8b35-d49121cd9bb9?action=share&source=collection_link&creator=15009917"
+		"_exporter_id": "34655126",
+		"_collection_link": "https://bikash-projects.postman.co/workspace/Bikash's-Workspace~07b4d747-08b6-4eac-9f94-41a4bad205fa/collection/15009917-1d422aed-d094-4dbc-8b35-d49121cd9bb9?action=share&source=collection_link&creator=34655126"
 	},
 	"item": [
 		{
@@ -24,7 +24,8 @@
 											"pm.environment.set('token', response.data.token)",
 											"pm.environment.set('refresh_token', response.data.refresh_token)"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -36,7 +37,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "scodus@developer.com",
+											"value": "scodus@admin.com",
 											"type": "text"
 										},
 										{
@@ -47,7 +48,14 @@
 										{
 											"key": "device_token",
 											"value": "",
-											"type": "text"
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "P@ssw0rd",
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
@@ -1011,76 +1019,6 @@
 					]
 				},
 				{
-					"name": "complain",
-					"item": [
-						{
-							"name": "list",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/admin/complain",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"complain"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "single show",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/admin/complain/:complain_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"admin",
-										"complain",
-										":complain_id"
-									],
-									"variable": [
-										{
-											"key": "complain_id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "Complain Type",
 					"item": [
 						{
@@ -1334,6 +1272,76 @@
 										{
 											"key": "complain_type_id",
 											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "complain",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/complain",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/complain/:complain_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"complain",
+										":complain_id"
+									],
+									"variable": [
+										{
+											"key": "complain_id",
+											"value": "12"
 										}
 									]
 								}
@@ -1771,6 +1779,60 @@
 					]
 				},
 				{
+					"name": "Complain Type",
+					"item": [
+						{
+							"name": "get all complain types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain-type?ward_id=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain-type"
+									],
+									"query": [
+										{
+											"key": "ward_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single complain type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain-type/:complain_type_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain-type",
+										":complain_type_id"
+									],
+									"variable": [
+										{
+											"key": "complain_type_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Complain",
 					"item": [
 						{
@@ -1786,6 +1848,31 @@
 									"path": [
 										"api",
 										"complain"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get single complain",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/complain/:complain_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"complain",
+										":complain_id"
+									],
+									"variable": [
+										{
+											"key": "complain_id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -1864,31 +1951,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "get single complain",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/complain/:complain_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"complain",
-										":complain_id"
-									],
-									"variable": [
-										{
-											"key": "complain_id",
-											"value": "4"
-										}
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				},
@@ -1924,54 +1986,6 @@
 									"path": [
 										"api",
 										"device-token"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Complain Type",
-					"item": [
-						{
-							"name": "get all complain types",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/complain-type",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"complain-type"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get single complain type",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/api/complain-type/:complain_type_id",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"api",
-										"complain-type",
-										":complain_type_id"
-									],
-									"variable": [
-										{
-											"key": "complain_type_id",
-											"value": "1"
-										}
 									]
 								}
 							},
@@ -2078,13 +2092,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/api/member",
+									"raw": "{{url}}/api/member?member_type=janapratinidhi,karmachari",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"api",
 										"member"
+									],
+									"query": [
+										{
+											"key": "member_type",
+											"value": "janapratinidhi,karmachari",
+											"description": "janapratinidhi,karmachari,other"
+										}
 									]
 								}
 							},
@@ -2332,7 +2353,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2344,12 +2366,12 @@
 									"formdata": [
 										{
 											"key": "phone",
-											"value": "9860659603",
+											"value": "9812775137",
 											"type": "text"
 										},
 										{
 											"key": "otp",
-											"value": "",
+											"value": "1961",
 											"type": "text"
 										}
 									]
@@ -2377,7 +2399,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -2389,7 +2412,7 @@
 									"formdata": [
 										{
 											"key": "phone",
-											"value": "9860659603",
+											"value": "9812775137",
 											"type": "text"
 										}
 									]
@@ -3023,27 +3046,32 @@
 										{
 											"key": "email",
 											"value": "a@b.com",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "address",
 											"value": "abey",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "service_provider_name",
 											"value": "XYZ Hos",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "service_provider_address",
 											"value": "zyx galli",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "disease_name",
 											"value": "Rog",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "ward_id",
@@ -3077,7 +3105,13 @@
 										{
 											"key": "dob",
 											"value": "2002-10-12",
-											"type": "text"
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Scodus/Downloads/Wings factory.jpg"
 										}
 									]
 								},
@@ -3454,7 +3488,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/education-service?ward_id=",
+											"raw": "{{url}}/api/education-service?ward_id=&type=",
 											"host": [
 												"{{url}}"
 											],
@@ -3466,6 +3500,11 @@
 												{
 													"key": "ward_id",
 													"value": ""
+												},
+												{
+													"key": "type",
+													"value": "",
+													"description": "community,institutional"
 												}
 											]
 										}
@@ -3508,7 +3547,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/health-service?ward_id",
+											"raw": "{{url}}/api/health-service?ward_id&type",
 											"host": [
 												"{{url}}"
 											],
@@ -3520,6 +3559,11 @@
 												{
 													"key": "ward_id",
 													"value": null
+												},
+												{
+													"key": "type",
+													"value": null,
+													"description": "community,institutional"
 												}
 											]
 										}
@@ -3562,7 +3606,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/agriculture-service?ward_id",
+											"raw": "{{url}}/api/agriculture-service?ward_id&type",
 											"host": [
 												"{{url}}"
 											],
@@ -3574,6 +3618,11 @@
 												{
 													"key": "ward_id",
 													"value": null
+												},
+												{
+													"key": "type",
+													"value": null,
+													"description": "community,institutional"
 												}
 											]
 										}
@@ -3616,7 +3665,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/tourist-area-service?ward_id",
+											"raw": "{{url}}/api/tourist-area-service?ward_id&type",
 											"host": [
 												"{{url}}"
 											],
@@ -3628,6 +3677,11 @@
 												{
 													"key": "ward_id",
 													"value": null
+												},
+												{
+													"key": "type",
+													"value": null,
+													"description": "community,institutional"
 												}
 											]
 										}
@@ -3670,7 +3724,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{url}}/api/public-toilet-service?ward_id=",
+											"raw": "{{url}}/api/public-toilet-service?ward_id=&type=",
 											"host": [
 												"{{url}}"
 											],
@@ -3682,6 +3736,11 @@
 												{
 													"key": "ward_id",
 													"value": ""
+												},
+												{
+													"key": "type",
+													"value": "",
+													"description": "community,institutional"
 												}
 											]
 										}
@@ -3707,6 +3766,113 @@
 												{
 													"key": "id",
 													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Technical Services",
+					"item": [
+						{
+							"name": "Technical Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/technical-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"technical-service"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/technical-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"technical-service",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Technical Service Provider",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/technical-service-provider?technical_service_id=1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"technical-service-provider"
+											],
+											"query": [
+												{
+													"key": "technical_service_id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/technical-service-provider/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"technical-service-provider",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
 												}
 											]
 										}
