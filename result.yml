@@ -70,6 +70,9 @@ tags:
   - name: public > Technical Services
   - name: public > Technical Services > Technical Service
   - name: public > Technical Services > Technical Service Provider
+  - name: public > Additional Services
+  - name: public > Additional Services > Additional Service Type
+  - name: public > Additional Services > Additional Service
   - name: v2
 paths:
   /api/admin/login:
@@ -965,8 +968,7 @@ paths:
                 phone_number:
                   type: string
                 ward_id:
-                  type: integer
-                  example: '1'
+                  type: string
                 tole:
                   type: string
                   example: Tole here
@@ -2008,6 +2010,66 @@ paths:
     get:
       tags:
         - public > Technical Services > Technical Service Provider
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/additional-service-type:
+    get:
+      tags:
+        - public > Additional Services > Additional Service Type
+      summary: list
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/additional-service-type/{id}:
+    get:
+      tags:
+        - public > Additional Services > Additional Service Type
+      summary: single
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/additional-service:
+    get:
+      tags:
+        - public > Additional Services > Additional Service
+      summary: list
+      parameters:
+        - name: additional_service_type_id
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/additional-service/{id}:
+    get:
+      tags:
+        - public > Additional Services > Additional Service
       summary: single
       parameters:
         - name: id

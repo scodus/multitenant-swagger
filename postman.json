@@ -1914,7 +1914,7 @@
 										},
 										{
 											"key": "ward_id",
-											"value": "1",
+											"value": "",
 											"type": "text"
 										},
 										{
@@ -1929,13 +1929,13 @@
 										},
 										{
 											"key": "documents[]",
-											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/Bleach - Shooting Star (Title Song).mp4"
+											"value": "",
+											"type": "file"
 										},
 										{
 											"key": "documents[]",
-											"type": "file",
-											"src": "/C:/Users/August/Downloads/Compressed/test-images/1.jpg"
+											"value": "",
+											"type": "file"
 										}
 									]
 								},
@@ -3867,6 +3867,113 @@
 											"path": [
 												"api",
 												"technical-service-provider",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Additional Services",
+					"item": [
+						{
+							"name": "Additional Service Type",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/additional-service-type",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"additional-service-type"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/additional-service-type/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"additional-service-type",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Additional Service",
+							"item": [
+								{
+									"name": "list",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/additional-service?additional_service_type_id=1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"additional-service"
+											],
+											"query": [
+												{
+													"key": "additional_service_type_id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "single",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/additional-service/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"additional-service",
 												":id"
 											],
 											"variable": [
