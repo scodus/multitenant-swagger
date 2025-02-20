@@ -3985,8 +3985,138 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "store",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "department_ids[]",
+													"value": "1",
+													"description": "nullable",
+													"type": "text"
+												},
+												{
+													"key": "cost",
+													"value": "123",
+													"type": "text"
+												},
+												{
+													"key": "additional_service_type_id",
+													"value": "1",
+													"type": "text"
+												},
+												{
+													"key": "ward_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "sa df",
+													"description": "text",
+													"type": "text"
+												},
+												{
+													"key": "person_name",
+													"value": "asd f",
+													"description": "text",
+													"type": "text"
+												},
+												{
+													"key": "person_address",
+													"value": "sadf asd",
+													"description": "text",
+													"type": "text"
+												},
+												{
+													"key": "person_phone",
+													"value": "a sdf",
+													"description": "text",
+													"type": "text"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/August/Pictures/download.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/additional-service",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"additional-service"
+											]
+										}
+									},
+									"response": []
 								}
 							]
+						}
+					]
+				},
+				{
+					"name": "department",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/department",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"department"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "single show",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/department/:department_id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"department",
+										":department_id"
+									],
+									"variable": [
+										{
+											"key": "department_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}

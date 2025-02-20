@@ -73,6 +73,7 @@ tags:
   - name: public > Additional Services
   - name: public > Additional Services > Additional Service Type
   - name: public > Additional Services > Additional Service
+  - name: public > department
   - name: v2
 paths:
   /api/admin/login:
@@ -2066,6 +2067,55 @@ paths:
           description: Successful response
           content:
             application/json: {}
+    post:
+      tags:
+        - public > Additional Services > Additional Service
+      summary: store
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                department_ids[]:
+                  type: integer
+                  description: nullable
+                  example: '1'
+                cost:
+                  type: integer
+                  example: '123'
+                additional_service_type_id:
+                  type: integer
+                  example: '1'
+                ward_id:
+                  type: integer
+                  example: '2'
+                description:
+                  type: string
+                  description: text
+                  example: sa df
+                person_name:
+                  type: string
+                  description: text
+                  example: asd f
+                person_address:
+                  type: string
+                  description: text
+                  example: sadf asd
+                person_phone:
+                  type: string
+                  description: text
+                  example: a sdf
+                image:
+                  type: string
+                  format: binary
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
   /api/additional-service/{id}:
     get:
       tags:
@@ -2073,6 +2123,37 @@ paths:
       summary: single
       parameters:
         - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/department:
+    get:
+      tags:
+        - public > department
+      summary: list
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/department/{department_id}:
+    get:
+      tags:
+        - public > department
+      summary: single show
+      security:
+        - noauthAuth: []
+      parameters:
+        - name: department_id
           in: path
           schema:
             type: integer
